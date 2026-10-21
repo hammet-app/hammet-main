@@ -21,9 +21,9 @@ export default function Nav() {
   return (
     <nav id="nav">
       <div className="nav-in wrap">
-        {/* To use the real Hammet logo: replace the .logo-mark div with <img src="/assets/hammet-logo.png" height={44} alt="Hammet" /> */}
+        {/* To use the real Hammet logo: replace the .logo-mark div with  */}
         <Link className="logo" href="/" aria-label="Hammet School of AI Foundations">
-          <div className="logo-mark">H</div>
+          <img src="/favicon.ico" height={44} alt="Hammet" />
           <div className="logo-t">
             <b>Hammet</b>
             <span>School of AI Foundations</span>
