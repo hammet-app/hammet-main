@@ -1,22 +1,36 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { Poppins, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+// Body & Clean Interface
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
+// Editorial Display & High-Impact Headlines
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+// Tech Numbers, Tickers & Digital Micro-Badges
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-tech",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Hammet — Your AI career starts here.",
+  title: "Hammet LACE — Lagos AI Career Experience",
   description:
-    "Hammet is Nigeria's AI career pathway platform. Learn AI in plain language, use it on real work, and build a career with it.",
+    "Nigeria's premier AI career pathway and experiential event. Learn AI in plain language, work on real projects, and launch your global career.",
 };
 
 export default function RootLayout({
@@ -25,10 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${dmSans.variable} ${dmSerif.variable} antialiased`}
+        className={`${poppins.variable} ${plusJakarta.variable} ${spaceGrotesk.variable} font-sans antialiased bg-[#07020d] text-slate-100 selection:bg-[#E0FF4D] selection:text-[#0c0516]`}
       >
+        <SmoothScroll />
         {children}
       </body>
     </html>

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local test captures and raw archives
+/*.png
+lace-website-developer-package.zip
+lace-website-developer-package/

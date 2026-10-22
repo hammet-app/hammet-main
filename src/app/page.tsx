@@ -70,7 +70,7 @@ export default function Home() {
           <span className="font-semibold">Tickets from ₦2,000</span>
 
           <Link
-            href="#ticket"
+            href="/lace"
             className="inline-flex items-center gap-1 font-semibold text-[#67E8F9] transition hover:text-white"
           >
             Get your ticket
@@ -477,7 +477,7 @@ export default function Home() {
             </div>
 
             <Link
-              href="#"
+              href="/lace"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#5B21B6] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#6D28D9]"
             >
               Get your ticket
