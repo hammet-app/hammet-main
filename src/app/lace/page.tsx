@@ -1,3 +1,4 @@
+import '../responsive.css';
 import Hero from '@/components/home/Hero';
 import TickerBar from '@/components/home/TickerBar';
 import Courses from '@/components/home/Courses';
