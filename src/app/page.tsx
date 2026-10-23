@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   ArrowRight,
@@ -11,15 +11,15 @@ import {
   Sun,
   Users,
   X,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const NAV_ITEMS = [
-  { label: "Why Hammet", href: "#why-hammet" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Foundation", href: "#foundation" },
+  { label: 'Why Hammet', href: '#why-hammet' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Foundation', href: '#foundation' },
 ];
 
 export default function Home() {
@@ -27,11 +27,11 @@ export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("hammet-theme");
+    const saved = localStorage.getItem('hammet-theme');
 
-    if (saved === "dark") {
+    if (saved === 'dark') {
       setDark(true);
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
@@ -39,8 +39,8 @@ export default function Home() {
     const next = !dark;
 
     setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("hammet-theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('hammet-theme', next ? 'dark' : 'light');
   };
 
   const closeMobile = () => setMobileOpen(false);
@@ -60,9 +60,7 @@ export default function Home() {
 
           <span className="hidden text-white/40 sm:inline">•</span>
 
-          <span className="text-white/80">
-            Reimagining Work. 25 September.
-          </span>
+          <span className="text-white/80">Reimagining Work. 25 September.</span>
 
           <span className="hidden text-white/40 sm:inline">•</span>
 
@@ -85,11 +83,7 @@ export default function Home() {
       <header className="relative z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#10051c]/90">
         <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
           {/* Brand */}
-          <Link
-            href="/"
-            className="flex shrink-0 items-center gap-2"
-            aria-label="Hammet home"
-          >
+          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Hammet home">
             <Image
               src="/favicon.ico"
               alt="Hammet"
@@ -122,11 +116,7 @@ export default function Home() {
               aria-label="Toggle dark mode"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-[#5B21B6] hover:text-[#5B21B6] dark:border-white/10 dark:text-white/70 dark:hover:border-[#06B6D4] dark:hover:text-[#67E8F9]"
             >
-              {dark ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
           </div>
 
@@ -138,11 +128,7 @@ export default function Home() {
               aria-label="Toggle dark mode"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-white/10"
             >
-              {dark ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
 
             <button
@@ -151,11 +137,7 @@ export default function Home() {
               aria-label="Toggle navigation"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5B21B6] text-white"
             >
-              {mobileOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </nav>
@@ -199,16 +181,13 @@ export default function Home() {
 
             <h1 className="font-serif text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-[#3B0764] sm:text-6xl lg:text-8xl dark:text-white">
               Your AI career
-              <span className="block text-[#6D28D9] dark:text-[#A78BFA]">
-                starts here.
-              </span>
+              <span className="block text-[#6D28D9] dark:text-[#A78BFA]">starts here.</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-white/65">
-              Hammet is Nigeria&apos;s foremost AI career pathway platform. We
-              teach AI in plain language, then connect it to real work, so
-              learners don&apos;t only know what AI is. They know what to do
-              with it.
+              Hammet is Nigeria&apos;s foremost AI career pathway platform. We teach AI in plain
+              language, then connect it to real work, so learners don&apos;t only know what AI is.
+              They know what to do with it.
             </p>
           </div>
 
@@ -264,8 +243,7 @@ export default function Home() {
                 </h2>
 
                 <p className="mt-3 max-w-md leading-7 text-white/65">
-                  A complete AI curriculum for JSS1 to JSS3, ready from first
-                  term.
+                  A complete AI curriculum for JSS1 to JSS3, ready from first term.
                 </p>
 
                 <div className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#67E8F9]">
@@ -303,9 +281,8 @@ export default function Home() {
 
             <div className="max-w-2xl">
               <p className="text-xl leading-9 text-slate-700 dark:text-white/75">
-                About 90% of Africa&apos;s young people leave school without
-                basic AI skills. Meanwhile AI is already writing, designing,
-                hiring and diagnosing.
+                About 90% of Africa&apos;s young people leave school without basic AI skills.
+                Meanwhile AI is already writing, designing, hiring and diagnosing.
               </p>
 
               <div className="my-8 h-px w-full bg-slate-200 dark:bg-white/10" />
@@ -313,7 +290,7 @@ export default function Home() {
               <p className="text-xl font-medium leading-9 text-[#3B0764] dark:text-white">
                 We think that gap can be closed.
                 <span className="text-[#5B21B6] dark:text-[#67E8F9]">
-                  {" "}
+                  {' '}
                   So we&apos;re closing it.
                 </span>
               </p>
@@ -335,52 +312,45 @@ export default function Home() {
 
             <h2 className="font-serif text-4xl font-semibold leading-tight tracking-[-0.03em] text-[#3B0764] sm:text-5xl lg:text-6xl dark:text-white">
               Learn it.
-              <span className="text-[#6D28D9] dark:text-[#A78BFA]">
-                {" "}
-                Use it.
-              </span>
+              <span className="text-[#6D28D9] dark:text-[#A78BFA]"> Use it.</span>
               <span className="text-[#06B6D4]"> Earn from it.</span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-white/60">
-              AI shouldn&apos;t just be something you know about. It should
-              become something you can actually use.
+              AI shouldn&apos;t just be something you know about. It should become something you can
+              actually use.
             </p>
           </div>
 
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {[
               {
-                number: "01",
-                title: "Learn it.",
-                text: "First you understand how AI works.",
+                number: '01',
+                title: 'Learn it.',
+                text: 'First you understand how AI works.',
               },
               {
-                number: "02",
-                title: "Use it.",
-                text: "Then you use the tools on real tasks.",
+                number: '02',
+                title: 'Use it.',
+                text: 'Then you use the tools on real tasks.',
               },
               {
-                number: "03",
-                title: "Earn from it.",
-                text: "Then you build a career on it, with pathways for science, arts and commerce students, and beyond.",
+                number: '03',
+                title: 'Earn from it.',
+                text: 'Then you build a career on it, with pathways for science, arts and commerce students, and beyond.',
               },
             ].map((step) => (
               <article
                 key={step.number}
                 className="rounded-3xl border border-slate-200 bg-slate-50 p-7 dark:border-white/10 dark:bg-white/[0.045]"
               >
-                <span className="text-sm font-bold text-[#06B6D4]">
-                  {step.number}
-                </span>
+                <span className="text-sm font-bold text-[#06B6D4]">{step.number}</span>
 
                 <h3 className="mt-12 font-serif text-3xl font-semibold text-[#3B0764] dark:text-white">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 leading-7 text-slate-600 dark:text-white/60">
-                  {step.text}
-                </p>
+                <p className="mt-3 leading-7 text-slate-600 dark:text-white/60">{step.text}</p>
               </article>
             ))}
           </div>
@@ -391,10 +361,7 @@ export default function Home() {
           FOUNDATION
       ───────────────────────────────────────────── */}
 
-      <section
-        id="foundation"
-        className="relative overflow-hidden bg-[#3B0764] text-white"
-      >
+      <section id="foundation" className="relative overflow-hidden bg-[#3B0764] text-white">
         <div className="absolute right-[-8rem] top-[-8rem] h-96 w-96 rounded-full bg-[#06B6D4]/15 blur-3xl" />
         <div className="absolute bottom-[-12rem] left-[-8rem] h-96 w-96 rounded-full bg-[#6D28D9]/40 blur-3xl" />
 
@@ -414,9 +381,8 @@ export default function Home() {
               </h2>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/65">
-                Hammet Research Foundation, our nonprofit arm, is working to
-                bring AI literacy to girls, rural students and learners with
-                disabilities.
+                Hammet Research Foundation, our nonprofit arm, is working to bring AI literacy to
+                girls, rural students and learners with disabilities.
               </p>
 
               <Link
@@ -430,11 +396,7 @@ export default function Home() {
 
             <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-7 backdrop-blur-sm sm:p-9">
               <div className="space-y-5">
-                {[
-                  "Girls",
-                  "Rural students",
-                  "Learners with disabilities",
-                ].map((item) => (
+                {['Girls', 'Rural students', 'Learners with disabilities'].map((item) => (
                   <div
                     key={item}
                     className="flex items-center gap-4 border-b border-white/10 pb-5 last:border-0 last:pb-0"
@@ -443,9 +405,7 @@ export default function Home() {
                       <Check className="h-4 w-4" />
                     </div>
 
-                    <span className="text-base font-medium text-white/85">
-                      {item}
-                    </span>
+                    <span className="text-base font-medium text-white/85">{item}</span>
                   </div>
                 ))}
               </div>
@@ -495,18 +455,8 @@ export default function Home() {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
             {/* Brand */}
             <div>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2"
-                aria-label="Hammet home"
-              >
-                <Image
-                  src="/favicon.ico"
-                  alt="Hammet"
-                  width={28}
-                  height={28}
-                  className="h-7 w-7"
-                />
+              <Link href="/" className="inline-flex items-center gap-2" aria-label="Hammet home">
+                <Image src="/favicon.ico" alt="Hammet" width={28} height={28} className="h-7 w-7" />
 
                 <span className="font-serif text-2xl font-semibold tracking-tight text-[#3B0764] dark:text-white">
                   Hammet
@@ -514,16 +464,14 @@ export default function Home() {
               </Link>
 
               <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500 dark:text-white/45">
-                Nigeria&apos;s AI career pathway platform. Learn AI properly,
-                use it in the real world, and build a career around it.
+                Nigeria&apos;s AI career pathway platform. Learn AI properly, use it in the real
+                world, and build a career around it.
               </p>
             </div>
 
             {/* Platform */}
             <div>
-              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">
-                Platform
-              </h3>
+              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">Platform</h3>
 
               <div className="mt-4 flex flex-col gap-3">
                 <Link
@@ -551,9 +499,7 @@ export default function Home() {
 
             {/* Company */}
             <div>
-              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">
-                Company
-              </h3>
+              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">Company</h3>
 
               <div className="mt-4 flex flex-col gap-3">
                 {/*<Link
@@ -581,9 +527,7 @@ export default function Home() {
 
             {/* Legal */}
             <div>
-              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">
-                Legal
-              </h3>
+              <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">Legal</h3>
 
               <div className="mt-4 flex flex-col gap-3">
                 <Link
