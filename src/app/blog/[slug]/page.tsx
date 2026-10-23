@@ -1,4 +1,5 @@
 import {notFound} from 'next/navigation'
+import Link from 'next/link'
 import type {Metadata} from 'next'
 import {getPost, getRelatedPosts} from '@/lib/content'
 import { urlFor } from '@/lib/content/image' 
@@ -123,25 +124,58 @@ export default async function BlogPostPage({params}: Props) {
           __html: JSON.stringify(structuredData),
         }}
       />
-      <article>
-        <header className="mx-auto max-w-4xl px-6 pb-12 pt-16 sm:px-8 lg:pb-16 lg:pt-24">
-          {post.category?.title && (
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-dark">
-              {post.category.title}
-            </p>
-          )}
 
-          <h1 className="mt-5 font-serif text-4xl leading-[1.08] tracking-tight text-purple-dark sm:text-5xl lg:text-6xl">
+      {/* Top Header Navigation */}
+      <nav className="border-b border-gray-100 bg-white/90 sticky top-0 z-40 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center gap-2 text-purple-dark transition-opacity hover:opacity-90">
+            <img src="/favicon.ico" width={26} height={26} alt="Hammet" className="rounded" />
+            <span className="font-serif text-lg font-bold tracking-tight">Hammet</span>
+          </Link>
+
+          <div className="flex items-center gap-3 sm:gap-6 text-sm">
+            <Link href="/blog" className="inline-flex items-center gap-1 font-semibold text-purple transition-colors hover:text-cyan-dark">
+              <span>←</span>
+              <span>All articles</span>
+            </Link>
+            <Link href="/lace" className="hidden text-gray-600 transition-colors hover:text-purple sm:inline-block">
+              LACE 1.0
+            </Link>
+            <Link
+              href="/lace#tickets"
+              className="inline-flex items-center justify-center rounded-full bg-purple px-3.5 py-1.5 text-xs font-bold text-white transition-all hover:bg-purple-mid"
+            >
+              Get Tickets
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <article>
+        <header className="mx-auto max-w-4xl px-4 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-16 lg:px-8 lg:pb-16 lg:pt-20">
+          <div className="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
+            <Link href="/" className="transition-colors hover:text-purple">Home</Link>
+            <span>/</span>
+            <Link href="/blog" className="transition-colors hover:text-purple">Journal</Link>
+            {post.category?.title && (
+              <>
+                <span>/</span>
+                <span className="text-cyan-dark">{post.category.title}</span>
+              </>
+            )}
+          </div>
+
+          <h1 className="mt-3 font-serif text-3xl leading-[1.1] tracking-tight text-purple-dark sm:text-5xl lg:text-6xl">
             {post.title}
           </h1>
 
           {post.excerpt && (
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-600 sm:text-xl">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-xl sm:leading-8">
               {post.excerpt}
             </p>
           )}
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-500">
+          <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm text-gray-500">
             {post.author?.name && (
               <span className="font-medium text-gray-700">
                 By {post.author.name}
@@ -166,7 +200,7 @@ export default async function BlogPostPage({params}: Props) {
 
         {post.coverImage && (
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden rounded-2xl sm:rounded-3xl">
               <img
                 src={urlFor(post.coverImage)
                   .width(1600)
@@ -180,14 +214,14 @@ export default async function BlogPostPage({params}: Props) {
         )}
 
         {post.content && (
-          <div className="mx-auto max-w-3xl px-6 py-16 sm:px-8 lg:py-20">
+          <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
             <ArticleContent content={post.content} />
 
             <AuthorCard author={post.author} />
-
           </div>
         )}
       </article>
+
       <RelatedPosts posts={relatedPosts} />
     </main>
   )

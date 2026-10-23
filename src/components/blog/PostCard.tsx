@@ -33,14 +33,14 @@ export default function PostCard({post, index}: PostCardProps) {
             )}
           </div>
 
-          <div className="p-6">
+          <div className="p-5 sm:p-6">
             {post.category?.title && (
               <p className="text-xs font-bold uppercase tracking-[0.15em] text-cyan-dark">
                 {post.category.title}
               </p>
             )}
 
-            <h2 className="mt-3 font-serif text-2xl leading-tight text-purple-dark transition-colors duration-300 group-hover:text-purple">
+            <h2 className="mt-3 font-serif text-xl sm:text-2xl leading-tight text-purple-dark transition-colors duration-300 group-hover:text-purple">
               {post.title}
             </h2>
 

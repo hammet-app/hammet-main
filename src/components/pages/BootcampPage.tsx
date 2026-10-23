@@ -8,7 +8,7 @@ export default function BootcampPage() {
   return (
     <>
       <header className="sub-hero" id="ptop">
-        <div className="wrap bc" style={{ gridTemplateColumns: '1.15fr .85fr' }}>
+        <div className="wrap bc">
           <div className="plate">
             <div className="crumb"><Link href="/">Home</Link>{' '}/ LACE Bootcamp</div>
             {' '}

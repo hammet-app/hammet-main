@@ -263,12 +263,17 @@ export default function Tickets() {
           </div>
           <h3
             className="reveal pl"
-            style={{ fontSize: 'clamp(22px,2.6vw,30px)', margin: '80px 0 26px' }}
+            style={{ fontSize: 'clamp(22px,2.6vw,30px)', margin: '80px 0 16px' }}
           >
             Compare tickets side by side
           </h3>
+          <div className="cmp-scroll-hint">
+            <span>Swipe horizontally to compare all 3 tiers &rarr;</span>
+          </div>
           <div className="cmp reveal">
-            <Comparison></Comparison>
+            <div className="cmp-in">
+              <Comparison></Comparison>
+            </div>
           </div>
         </div>
       </section>

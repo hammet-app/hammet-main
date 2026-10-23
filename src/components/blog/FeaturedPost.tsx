@@ -27,14 +27,14 @@ export default function FeaturedPost({post}: FeaturedPostProps) {
             )}
           </div>
 
-          <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+          <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-12">
             {post.category?.title && (
               <span className="text-sm font-semibold uppercase tracking-[0.15em] text-cyan-dark">
                 {post.category.title}
               </span>
             )}
 
-            <h2 className="mt-4 font-serif text-3xl leading-tight text-purple-dark transition-colors duration-300 group-hover:text-purple sm:text-4xl">
+            <h2 className="mt-3 font-serif text-2xl leading-tight text-purple-dark transition-colors duration-300 group-hover:text-purple sm:text-3xl lg:text-4xl">
               {post.title}
             </h2>
 
