@@ -183,9 +183,11 @@ export default function TestimonialModal({
                 href={LINKS.selar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full bg-[#5B21B6] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white transition hover:bg-[#4B0082] hover:shadow-md"
+                style={{ color: '#ffffff' }}
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#5B21B6] px-4 py-2 text-xs font-bold uppercase tracking-wider !text-white transition hover:bg-[#4B0082] hover:!text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
-                Register for LACE 1.0 →
+                <span className="!text-white text-white" style={{ color: '#ffffff' }}>Register for LACE 1.0</span>
+                <span className="!text-white text-white" style={{ color: '#ffffff' }}>→</span>
               </a>
             </div>
           </div>
@@ -205,14 +207,14 @@ export default function TestimonialModal({
               <span className="h-1.5 w-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
               LACE Bootcamp 2026
             </span>
-            {testimonial.cardType === 'video' && (
+            {testimonial.cardType === 'featured' && (
               <span className="inline-flex items-center gap-1 rounded-full bg-[#06B6D4]/20 border border-[#06B6D4]/40 px-2 py-0.5 text-[9px] font-bold text-[#67E8F9]">
-                ▶ Video Story
+                ★ Spotlight Story
               </span>
             )}
           </div>
 
-          {/* Center Portrait Frame - Perfectly proportioned and centered */}
+          {/* Center Portrait Frame - Clean, perfectly proportioned portrait */}
           <div className="relative z-10 my-auto py-3 flex flex-col items-center w-full">
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-2xl p-1 bg-gradient-to-tr from-[#06B6D4] via-[#8B5CF6] to-[#E6FF4D] shadow-xl transition-transform duration-300 hover:scale-105 shrink-0">
               <div className="w-full h-full rounded-[14px] overflow-hidden bg-slate-900 relative">
@@ -221,15 +223,6 @@ export default function TestimonialModal({
                   alt={testimonial.n}
                   className="w-full h-full object-cover object-top"
                 />
-                {testimonial.cardType === 'video' && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-md border border-white/40 shadow-lg">
-                      <svg className="h-5 w-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 

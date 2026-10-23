@@ -2,28 +2,28 @@ import { TESTIMONIALS, type Testimonial } from '@/lib/config';
 
 export interface EnrichedTestimonial extends Testimonial {
   id: string;
-  cardType: 'video' | 'social';
+  cardType: 'featured' | 'social';
   rating: number;
   shortQuote: string;
   highlightWords: string[];
   platform?: 'linkedin' | 'twitter' | 'hammet';
   badge: string;
-  category: 'all' | 'video' | 'leadership' | 'sales' | 'growth';
+  category: 'all' | 'featured' | 'leadership' | 'sales' | 'growth';
 }
 
 const META_MAP: Record<
   string,
   {
-    cardType: 'video' | 'social';
+    cardType: 'featured' | 'social';
     shortQuote: string;
     highlightWords: string[];
     platform?: 'linkedin' | 'twitter' | 'hammet';
     badge: string;
-    category: 'video' | 'leadership' | 'sales' | 'growth';
+    category: 'featured' | 'leadership' | 'sales' | 'growth';
   }
 > = {
   'John Aba Igwe': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'The LACE Bootcamp gave me clarity, confidence and a champion mindset.',
     highlightWords: ['leadership factory', 'champion mindset', 'clarity, confidence', 'consumer to champion'],
     badge: 'QuiAri · GoLang',
@@ -46,7 +46,7 @@ const META_MAP: Record<
     category: 'leadership',
   },
   'Godswill Nwafor': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'Leadership goes beyond titles... demonstrated through everyday actions.',
     highlightWords: ['leadership goes beyond titles', 'demonstrated through everyday actions', 'LACE AI project'],
     badge: 'Software Engineer',
@@ -77,7 +77,7 @@ const META_MAP: Record<
     category: 'leadership',
   },
   'Joy Eseohen': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'Leadership is about giving without expecting anything in return.',
     highlightWords: ['giving without expecting anything in return', 'lasting impact in people', 'creating new systems'],
     badge: 'Finance Officer',
@@ -92,14 +92,14 @@ const META_MAP: Record<
     category: 'sales',
   },
   'Godswill Ikechukwu': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'Boldness in sales is not loudness. Sales is about perception and conviction.',
     highlightWords: ['boldness in sales is not loudness', 'clarity and conviction', 'carrying the burden of a vision'],
     badge: 'CEO, WILLON · CampFlux',
     category: 'sales',
   },
   'Elizabeth Ndubuisi': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'How can you announce growth you are not living? Now I breathe under pressure.',
     highlightWords: ['announce growth you are not living', 'breathe under pressure', 'self-understanding is leverage'],
     badge: 'Executive Assistant · HR',
@@ -122,7 +122,7 @@ const META_MAP: Record<
     category: 'sales',
   },
   'The Global Foma': {
-    cardType: 'video',
+    cardType: 'featured',
     shortQuote: 'Get into rooms, and pay to be in those rooms if possible. Meet and connect.',
     highlightWords: ['Get into rooms, and pay to be in those rooms', 'bold in entrepreneurship', 'force for greatness'],
     badge: 'Foma Accessories Int’l',
@@ -140,7 +140,7 @@ const META_MAP: Record<
 
 export const ENRICHED_TESTIMONIALS: EnrichedTestimonial[] = TESTIMONIALS.map((t, index) => {
   const meta = META_MAP[t.n] || {
-    cardType: index % 3 === 0 ? 'video' : 'social',
+    cardType: index % 3 === 0 ? 'featured' : 'social',
     shortQuote: t.x.slice(0, 80) + '...',
     highlightWords: [],
     platform: 'hammet',

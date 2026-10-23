@@ -5,7 +5,7 @@ import { ENRICHED_TESTIMONIALS, type EnrichedTestimonial } from './wallData';
 import TestimonialModal from './TestimonialModal';
 
 export default function WallOfLove() {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'video' | 'leadership' | 'sales' | 'growth'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'featured' | 'leadership' | 'sales' | 'growth'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTestimonial, setSelectedTestimonial] = useState<EnrichedTestimonial | null>(null);
 
@@ -13,7 +13,7 @@ export default function WallOfLove() {
   const filteredList = useMemo(() => {
     return ENRICHED_TESTIMONIALS.filter((t) => {
       // Category filter
-      if (activeCategory === 'video' && t.cardType !== 'video') return false;
+      if (activeCategory === 'featured' && t.cardType !== 'featured') return false;
       if (activeCategory === 'leadership' && t.category !== 'leadership') return false;
       if (activeCategory === 'sales' && t.category !== 'sales') return false;
       if (activeCategory === 'growth' && t.category !== 'growth') return false;
@@ -99,15 +99,15 @@ export default function WallOfLove() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveCategory('video')}
+            onClick={() => setActiveCategory('featured')}
             className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all shadow-xs ${
-              activeCategory === 'video'
+              activeCategory === 'featured'
                 ? 'bg-[#5B21B6] text-white shadow-md'
                 : 'bg-white text-slate-700 border border-slate-200/80 hover:bg-purple-50 hover:text-[#5B21B6]'
             }`}
           >
-            <span className="text-xs">▶</span>
-            <span>Featured Video Cards (6)</span>
+            <span className="text-xs">★</span>
+            <span>Featured Spotlights (6)</span>
           </button>
           <button
             type="button"
@@ -187,10 +187,10 @@ export default function WallOfLove() {
       ) : (
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {filteredList.map((t, idx) => {
-            const isVideo = t.cardType === 'video';
+            const isFeatured = t.cardType === 'featured';
 
-            if (isVideo) {
-              /* ── VIDEO / FEATURED VISUAL CARD STYLE ── */
+            if (isFeatured) {
+              /* ── FEATURED SPOTLIGHT CARD STYLE (NO VIDEO ICON) ── */
               return (
                 <div
                   key={t.id}
@@ -206,7 +206,7 @@ export default function WallOfLove() {
                   className="group relative cursor-pointer break-inside-avoid overflow-hidden rounded-3xl border border-purple-200/90 bg-white shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#5B21B6]"
                   style={{ animationDelay: `${idx * 50}ms` }}
                 >
-                  {/* Photo Top Section with Play Overlay */}
+                  {/* Photo Top Section with Clean Attribution Overlay */}
                   <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-900">
                     <img
                       src={t.f}
@@ -216,25 +216,25 @@ export default function WallOfLove() {
                     />
 
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
 
-                    {/* Play button overlay */}
-                    <div className="absolute left-4 bottom-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#06B6D4] group-hover:text-slate-950 shadow-md">
-                      <svg className="h-5 w-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-
-                    {/* Name & Stars overlay on photo */}
-                    <div className="absolute right-4 bottom-3 left-16 text-right">
-                      <div className="font-serif text-base font-bold text-white drop-shadow">
-                        {t.n}
+                    {/* Name, Title & Rating overlay on photo */}
+                    <div className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <div className="font-serif text-base sm:text-lg font-bold text-white drop-shadow truncate">
+                          {t.n}
+                        </div>
+                        <div className="text-[11px] font-medium text-white/80 line-clamp-1">
+                          {t.t}
+                        </div>
                       </div>
-                      <div className="text-[11px] font-medium text-white/80 line-clamp-1">
-                        {t.t}
-                      </div>
-                      <div className="flex items-center justify-end gap-0.5 text-amber-300 text-xs mt-0.5">
-                        {'★★★★★'}
+                      <div className="flex flex-col items-end shrink-0">
+                        <div className="flex items-center gap-0.5 text-amber-300 text-xs">
+                          {'★★★★★'}
+                        </div>
+                        <span className="text-[10px] font-semibold text-white/75 mt-0.5">
+                          Verified Story
+                        </span>
                       </div>
                     </div>
                   </div>

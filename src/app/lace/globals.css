@@ -43,6 +43,13 @@ a {
   color: inherit;
 }
 
+a.text-white,
+a.\!text-white,
+a[class*="text-white"],
+a[class*="!text-white"] {
+  color: #ffffff !important;
+}
+
 img, svg, video, iframe {
   max-width: 100%;
 }
