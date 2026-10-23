@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, Sparkles, Users, Award, Clock, MapPin } from "lucide-react";
+import { ShieldCheck, Users, Award, Clock, MapPin } from "lucide-react";
 import CountdownTimer from "@/components/lace/CountdownTimer";
 
 export default function HeroCollage() {

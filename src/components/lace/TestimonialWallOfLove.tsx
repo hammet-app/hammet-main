@@ -9,7 +9,6 @@ import {
   MessageSquare,
   Play,
   Share2,
-  Sparkles,
   Star,
   X,
 } from "lucide-react";

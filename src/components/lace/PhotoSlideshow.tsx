@@ -8,7 +8,6 @@ import {
   ChevronRight,
   Maximize2,
   MapPin,
-  Sparkles,
   Camera,
   Play,
   Pause,

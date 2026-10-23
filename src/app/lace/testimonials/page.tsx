@@ -1,5 +1,16 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, MessageSquareQuote, Sparkles, Star, Users, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Heart,
+  MessageSquare,
+  Star,
+  Users,
+  CheckCircle2,
+  TrendingUp,
+  Award,
+} from "lucide-react"
 import LaceNav from "@/components/lace/LaceNav"
 import LaceFooter from "@/components/lace/LaceFooter"
 import TestimonialWallOfLove from "@/components/lace/TestimonialWallOfLove"
@@ -13,10 +24,34 @@ export const metadata = {
 
 export default function LaceTestimonialsPage() {
   const stats = [
-    { label: "Documented Transformations", val: "15" },
-    { label: "Hands-on Practical Execution", val: "100%" },
-    { label: "Average Conviction Multiplier", val: "3X" },
-    { label: "Flawless Cohort Rating", val: "5.0 ★" },
+    {
+      label: "Documented Transformations",
+      val: "15",
+      icon: MessageSquare,
+      color: "text-[#06B6D4]",
+      badgeBg: "bg-cyan-500/15 border-cyan-400/30",
+    },
+    {
+      label: "Hands-on Practical Execution",
+      val: "100%",
+      icon: CheckCircle2,
+      color: "text-emerald-400",
+      badgeBg: "bg-emerald-500/15 border-emerald-400/30",
+    },
+    {
+      label: "Average Conviction Multiplier",
+      val: "3X",
+      icon: TrendingUp,
+      color: "text-[#E0FF4D]",
+      badgeBg: "bg-lime-500/15 border-lime-400/30",
+    },
+    {
+      label: "Flawless Cohort Rating",
+      val: "5.0 ★",
+      icon: Star,
+      color: "text-amber-400",
+      badgeBg: "bg-amber-500/15 border-amber-400/30",
+    },
   ]
 
   return (
@@ -24,33 +59,49 @@ export default function LaceTestimonialsPage() {
       <LaceNav />
 
       {/* ─────────────────────────────────────────────
-          EDITORIAL HEADER (Dark Luxury Theme with Text Colors)
+          EDITORIAL HEADER WITH ATMOSPHERIC PHOTO BACKDROP
       ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-white/10">
-        {/* Ambient atmospheric lighting */}
-        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute top-[-10%] right-1/4 h-[550px] w-[550px] rounded-full bg-[#5B21B6]/25 blur-[150px]" />
-          <div className="absolute top-1/3 left-[-150px] h-[500px] w-[500px] rounded-full bg-[#06B6D4]/15 blur-[140px]" />
+        {/* Full-bleed Atmospheric Photo Backdrop (High Visibility & Contrast) */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/lace/gallery/g06.jpg"
+            alt="LACE Community Graduation Gathering"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-90 filter contrast-120 brightness-100"
+          />
+          {/* Clean cinematic vignette letting the event gathering shine through */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07020d] via-[#07020d]/45 to-[#07020d]/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07020d]/75 via-transparent to-[#07020d]/75" />
+          <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-[#5B21B6]/20 blur-[130px]" />
+          <div className="absolute bottom-0 left-1/4 h-96 w-96 rounded-full bg-[#06B6D4]/15 blur-[130px]" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            {/* Back button */}
             <Link
               href="/lace"
-              className="group inline-flex items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-[#67E8F9] transition-colors mb-6"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-white/75 backdrop-blur-md transition-all hover:border-[#67E8F9]/40 hover:bg-white/10 hover:text-white mb-6 shadow-sm"
             >
-              <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
+              <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1 text-[#67E8F9]" />
               <span>Back to LACE 1.0 Overview</span>
             </Link>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/40 px-4 py-1.5 text-xs font-bold text-cyan-300 mb-5 backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-[#E0FF4D]" />
-              <span className="font-mono uppercase tracking-wider text-[11px]">
+            {/* Cute Colored Icon Eyebrow Badge (No Sparkles, matching Image 1) */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-rose-400/30 bg-rose-950/60 px-4 py-1.5 text-xs font-bold text-rose-300 mb-5 backdrop-blur-md shadow-lg shadow-rose-950/40">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-rose-500/20 text-rose-400">
+                <Heart className="h-3 w-3 fill-rose-400 text-rose-400" />
+              </span>
+              <span className="font-tech uppercase tracking-wider text-[11px] text-rose-200">
                 Wall of Love · Verified Participant Transformations
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
+            {/* Hero Headline with Balanced Mobile Font */}
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
               What{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E0FF4D] via-[#67E8F9] to-white">
                 changed
@@ -59,34 +110,46 @@ export default function LaceTestimonialsPage() {
               <span className="text-[#06B6D4]">showed up.</span>
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/70 max-w-2xl font-normal">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg leading-relaxed text-white/80 max-w-2xl font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               15 participants from software engineering, sales, creative design, and executive operations share what the 21 Days Leadership and Sales Bootcamp unlocked—and the concrete actions they have taken since.
             </p>
 
-            {/* Metrics Counter Bar */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-md"
-                >
-                  <span className="block font-mono text-xl sm:text-2xl font-extrabold text-[#E0FF4D]">
-                    {s.val}
-                  </span>
-                  <span className="block text-[10px] sm:text-[11px] text-white/60 mt-0.5 leading-tight">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
+            {/* Cute Colorful Metrics Counter Bar (Like Image 1) */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 w-full max-w-2xl">
+              {stats.map((s) => {
+                const Icon = s.icon
+                return (
+                  <div
+                    key={s.label}
+                    className="group relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-3 sm:p-4 backdrop-blur-xl shadow-xl shadow-black/50 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    {/* Top glass sheen line */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    
+                    <div className="flex items-center justify-center gap-1.5 mb-1">
+                      <div className={`flex h-6 w-6 items-center justify-center rounded-lg border ${s.badgeBg}`}>
+                        <Icon className={`h-3 w-3 ${s.color}`} />
+                      </div>
+                      <span className={`font-tech text-xl sm:text-2xl font-black tracking-tight ${s.color}`}>
+                        {s.val}
+                      </span>
+                    </div>
+
+                    <span className="block text-[10px] sm:text-[11px] font-semibold text-white/60 leading-tight">
+                      {s.label}
+                    </span>
+                  </div>
+                )
+              })}
             </div>
 
             {/* CTAs */}
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto">
               <a
                 href={LACE_CONFIG.links.selar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] px-8 py-3.5 text-sm font-bold text-slate-950 hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-cyan-500/25"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] px-7 py-3.5 text-xs sm:text-sm font-bold text-slate-950 hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-cyan-500/25"
               >
                 <span>Register for LACE 1.0</span>
                 <ArrowUpRight className="h-4 w-4" />
@@ -94,9 +157,9 @@ export default function LaceTestimonialsPage() {
 
               <Link
                 href="/lace/bootcamp"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/10 transition-all active:scale-95"
               >
-                <span>Explore the 21-Day Bootcamp</span>
+                <span>Explore 21-Day Bootcamp</span>
               </Link>
             </div>
           </div>
@@ -106,8 +169,8 @@ export default function LaceTestimonialsPage() {
       {/* ─────────────────────────────────────────────
           WALL OF LOVE MASONRY SECTION
       ───────────────────────────────────────────── */}
-      <section className="py-20 bg-[#07020d] border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <section className="py-16 sm:py-20 bg-[#07020d] border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <TestimonialWallOfLove testimonials={LACE_CONFIG.testimonials} />
         </div>
       </section>
@@ -115,20 +178,20 @@ export default function LaceTestimonialsPage() {
       {/* ─────────────────────────────────────────────
           BE PART OF THE NEXT STORY CTA
       ───────────────────────────────────────────── */}
-      <section className="py-20 bg-[#0c0516]">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="rounded-[2.5rem] border border-white/15 bg-gradient-to-r from-[#1E0938] via-[#2A0845] to-[#140526] p-8 sm:p-12 text-white shadow-2xl backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="py-16 sm:py-20 bg-[#0c0516]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div className="rounded-[2.5rem] border border-white/15 bg-gradient-to-r from-[#1E0938] via-[#2A0845] to-[#140526] p-6 sm:p-12 text-white shadow-2xl backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
             <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#06B6D4]">
+              <span className="text-xs font-tech font-bold uppercase tracking-widest text-[#06B6D4]">
                 Write your own chapter
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold mt-2 text-white">
+              <h2 className="font-display text-2xl sm:text-4xl font-extrabold mt-2 text-white">
                 Be part of the{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E0FF4D] to-[#67E8F9]">
                   next story.
                 </span>
               </h2>
-              <p className="mt-2 text-white/70 text-sm sm:text-base max-w-xl">
+              <p className="mt-2 text-white/70 text-xs sm:text-sm max-w-xl">
                 LACE 1.0 starts 31 October in Lagos with 2 weeks of applied AI training. Certification examination on Saturday, 14 November 2026.
               </p>
             </div>
@@ -137,7 +200,7 @@ export default function LaceTestimonialsPage() {
               href={LACE_CONFIG.links.selar}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#06B6D4] px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all"
+              className="w-full sm:w-auto inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#06B6D4] px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all"
             >
               <span>Get Your Ticket</span>
               <ArrowUpRight className="h-4 w-4" />

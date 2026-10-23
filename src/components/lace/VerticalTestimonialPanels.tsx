@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Quote, Sparkles, CheckCircle2, ChevronRight, Layers, SlidersHorizontal } from "lucide-react"
+import { Quote, CheckCircle2, ChevronRight, Layers, SlidersHorizontal } from "lucide-react"
 import { Testimonial } from "@/lib/lace-data"
 
 interface VerticalTestimonialPanelsProps {
@@ -216,7 +216,7 @@ export default function VerticalTestimonialPanels({ testimonials }: VerticalTest
                         </div>
                         {item.home && (
                           <span className="inline-flex items-center gap-1 rounded-full bg-purple-500/20 border border-purple-400/30 px-2.5 py-0.5 text-[10px] font-bold text-[#C4B5FD] uppercase tracking-wider">
-                            <Sparkles className="h-2.5 w-2.5" />
+                            <CheckCircle2 className="h-2.5 w-2.5 text-emerald-400" />
                             Featured
                           </span>
                         )}

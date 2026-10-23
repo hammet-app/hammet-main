@@ -11,7 +11,6 @@ import {
   MapPin,
   MessageSquare,
   Phone,
-  Sparkles,
   Users,
   Video,
 } from "lucide-react"

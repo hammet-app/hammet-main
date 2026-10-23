@@ -3,16 +3,19 @@ import Link from "next/link"
 import {
   ArrowRight,
   ArrowUpRight,
+  Award,
   Calendar,
   CheckCircle2,
   Clock,
   Compass,
   Flame,
+  Layers,
   MapPin,
   MessageSquare,
   ShieldCheck,
-  Sparkles,
   Users,
+  Video,
+  Zap,
 } from "lucide-react"
 import LaceNav from "@/components/lace/LaceNav"
 import LaceFooter from "@/components/lace/LaceFooter"
@@ -61,16 +64,18 @@ export default function LaceHomePage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Narrative Column (7 cols) */}
             <div className="lg:col-span-7">
-              {/* Category Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/50 px-4 py-1.5 text-xs font-semibold text-cyan-300 mb-6 backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#E0FF4D] animate-ping" />
-                <span className="font-mono uppercase tracking-wider text-[11px]">
+              {/* Category Eyebrow Pill with Cute Colored Icon Tile from Image 1 */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-950/60 px-4 py-1.5 text-xs font-bold text-cyan-300 mb-6 backdrop-blur-md shadow-lg shadow-cyan-950/40">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-500/20 text-[#67E8F9]">
+                  <Zap className="h-3 w-3 fill-[#67E8F9]" />
+                </span>
+                <span className="font-tech uppercase tracking-wider text-[11px] text-cyan-200">
                   LACE 1.0 · Theme: Reimagining Work
                 </span>
               </div>
 
-              {/* Title with Custom Text Colors & Designer Font */}
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              {/* Title with Custom Text Colors & Designer Font (Responsive Mobile Tuning) */}
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
                 AI-proof your{" "}
                 <span className="text-[#06B6D4]">career.</span>
                 <span className="block mt-2">
@@ -82,17 +87,17 @@ export default function LaceHomePage() {
                 </span>
               </h1>
 
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/70 max-w-2xl font-normal">
+              <p className="mt-5 sm:mt-6 text-sm sm:text-base lg:text-lg leading-relaxed text-white/70 max-w-2xl font-normal">
                 A two-week intensive certification training with a compulsory proctored examination. Built for working professionals, entrepreneurs, and ambitious graduates looking to deploy AI systems that multiply output and secure career leverage.
               </p>
 
-              {/* Action Button Row */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              {/* Action Button Row (Responsive Mobile Full-Width) */}
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <a
                   href={LACE_CONFIG.links.selar}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all text-center"
                 >
                   <span>Register for LACE 1.0</span>
                   <ArrowRight className="h-4 w-4" />
@@ -100,40 +105,61 @@ export default function LaceHomePage() {
 
                 <Link
                   href="/lace/testimonials"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-all active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold text-white hover:bg-white/10 transition-all active:scale-95 text-center"
                 >
                   <MessageSquare className="h-4 w-4 text-[#E0FF4D]" />
                   <span>See 15 Testimonials</span>
                 </Link>
               </div>
 
-              {/* Key Highlights Micro-Badges */}
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg">
-                <div className="rounded-2xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-md">
-                  <span className="block font-mono text-[10px] uppercase text-cyan-400">
-                    Opening Ceremony
-                  </span>
-                  <span className="text-xs font-bold text-white mt-0.5 block">
-                    31 Oct · Ogba, Lagos
-                  </span>
+              {/* Key Highlights Micro-Badges with Cute Colored Icon Tiles from Image 1 */}
+              <div className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-lg">
+                <div className="group relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-3 backdrop-blur-xl shadow-lg transition-all hover:-translate-y-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300">
+                      <Calendar className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block font-tech text-[10px] uppercase font-bold tracking-wider text-cyan-300">
+                        Opening Ceremony
+                      </span>
+                      <span className="text-xs font-bold text-white mt-0.5 block truncate">
+                        31 Oct · Ogba, Lagos
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-md">
-                  <span className="block font-mono text-[10px] uppercase text-cyan-400">
-                    Live Virtual Lab
-                  </span>
-                  <span className="text-xs font-bold text-white mt-0.5 block">
-                    2 – 13 Nov 2026
-                  </span>
+                <div className="group relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-3 backdrop-blur-xl shadow-lg transition-all hover:-translate-y-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 border border-purple-400/30 text-purple-300">
+                      <Video className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block font-tech text-[10px] uppercase font-bold tracking-wider text-purple-300">
+                        Live Virtual Lab
+                      </span>
+                      <span className="text-xs font-bold text-white mt-0.5 block truncate">
+                        2 – 13 Nov 2026
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="col-span-2 sm:col-span-1 rounded-2xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-md">
-                  <span className="block font-mono text-[10px] uppercase text-cyan-400">
-                    Mastery Exam
-                  </span>
-                  <span className="text-xs font-bold text-white mt-0.5 block">
-                    14 Nov 2026
-                  </span>
+                <div className="group relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-3 backdrop-blur-xl shadow-lg transition-all hover:-translate-y-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-lime-500/15 border border-lime-400/30 text-[#E0FF4D]">
+                      <Award className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block font-tech text-[10px] uppercase font-bold tracking-wider text-[#E0FF4D]">
+                        Mastery Exam
+                      </span>
+                      <span className="text-xs font-bold text-white mt-0.5 block truncate">
+                        14 Nov 2026
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

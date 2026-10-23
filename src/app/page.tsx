@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Menu,
   Moon,
-  Sparkles,
   Sun,
   Users,
   X,

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, MapPin, Users, Camera, Maximize2, X } from "lucide-react";
+import { MapPin, Users, Camera, Maximize2, X } from "lucide-react";
 
 interface GalleryPhoto {
   src: string;

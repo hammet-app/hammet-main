@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Clock,
   MessageSquare,
-  Sparkles,
   Users,
   Video,
 } from "lucide-react";

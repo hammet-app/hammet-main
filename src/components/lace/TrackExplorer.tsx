@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
   Layers,
   Cpu,
   TrendingUp,
@@ -220,9 +219,11 @@ export default function TrackExplorer() {
               </div>
 
               {/* Capstone Box */}
-              <div className="rounded-xl border border-purple-500/20 bg-purple-950/20 p-4">
+              <div className="rounded-xl border border-purple-500/25 bg-purple-950/25 p-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#E0FF4D] mb-1.5">
-                  <Sparkles className="h-3.5 w-3.5" />
+                  <div className="flex h-5 w-5 items-center justify-center rounded-md bg-purple-500/20 border border-purple-400/40 text-[#E0FF4D]">
+                    <Layers className="h-3 w-3" />
+                  </div>
                   <span>Capstone Project</span>
                 </div>
                 <p className="text-xs text-white/75 leading-relaxed">
