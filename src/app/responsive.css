@@ -1,0 +1,325 @@
+/*
+ * LACE responsive layer
+ * Import this file from the app page (or move the import to app/globals.css
+ * if your project centralizes global styles there).
+ */
+
+:root {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+}
+
+img, video {
+  height: auto;
+}
+
+body {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+main, section, header, footer, .wrap {
+  min-width: 0;
+}
+
+.wrap {
+  width: min(100% - 48px, 1200px);
+  margin-inline: auto;
+}
+
+.pad {
+  padding-block: clamp(44px, 7vw, 88px);
+}
+
+h1, h2, h3, p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  font-size: clamp(2.15rem, 6vw, 4.8rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.12;
+}
+
+h3 {
+  line-height: 1.2;
+}
+
+.lead {
+  max-width: 68ch;
+}
+
+.grid {
+  min-width: 0;
+}
+
+.card, .tl-card, .tl-box, .why-item, .final, .hero-l, .hero-r {
+  min-width: 0;
+}
+
+.btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    width: min(100% - 40px, 760px);
+  }
+
+  .hero-grid,
+  .why-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 32px;
+  }
+
+  .hero-grid {
+    align-items: center;
+  }
+
+  .theme-side {
+    display: none;
+  }
+
+  .impact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid.g4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid.g3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tl-wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tl-line {
+    display: none;
+  }
+
+  .bfacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .final {
+    padding: clamp(28px, 5vw, 52px);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .pad {
+    padding-block: 44px;
+  }
+
+  .sechead {
+    margin-bottom: 24px;
+  }
+
+  .sechead h2,
+  h2 {
+    letter-spacing: -0.025em;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero {
+    overflow: hidden;
+    padding-block: 48px 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px;
+  }
+
+  .hero-l, .hero-r {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero .blob {
+    max-width: 70vw;
+    max-height: 70vw;
+    pointer-events: none;
+  }
+
+  .pill-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill-row .tag {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .grid,
+  .grid.g3,
+  .grid.g4,
+  .impact,
+  .tl-wrap,
+  .bfacts {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .card {
+    padding: clamp(18px, 5vw, 26px);
+  }
+
+  .stat {
+    min-width: 0;
+  }
+
+  .stat b {
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .why-grid > * {
+    width: 100%;
+    min-width: 0 !important;
+  }
+
+  .tl-wrap {
+    gap: 14px;
+  }
+
+  .tl-card {
+    width: 100%;
+  }
+
+  .btnrow {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnrow .btn,
+  .btn {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .final {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .final .cx {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .final .cx a {
+    overflow-wrap: anywhere;
+  }
+
+  .tk {
+    overflow: hidden;
+  }
+
+  .ticker {
+    max-width: 100%;
+  }
+
+  .fac, .withs {
+    flex-wrap: wrap;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  section[style*="padding: 0 24px 96px"] {
+    padding: 0 16px 48px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .wrap {
+    width: calc(100% - 24px);
+  }
+
+  .pad {
+    padding-block: 36px;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 10vw, 2.4rem);
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
