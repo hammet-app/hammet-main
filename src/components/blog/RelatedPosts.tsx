@@ -11,7 +11,7 @@ export default function RelatedPosts({posts}: RelatedPostsProps) {
   }
 
   return (
-    <section className="mt-20 border-t border-purple-light pt-16">
+    <section className="mx-auto max-w-7xl px-6 pb-20 pt-16 sm:px-8 lg:px-12 mt-12 border-t border-purple-light">
       <div className="mb-8">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-dark">
           Keep reading
@@ -22,7 +22,7 @@ export default function RelatedPosts({posts}: RelatedPostsProps) {
         </h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         {posts.map((post, index) => (
           <PostCard key={post._id} post={post} index={index} />
         ))}

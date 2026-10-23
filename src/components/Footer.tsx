@@ -42,7 +42,7 @@ export default function Footer() {
             <Link href="/bootcamp">The LACE Bootcamp</Link>
             <Link href="/testimonials">Testimonials</Link>
             <span>Instagram: @hammet_ai</span>
-            <br />
+            <Link href="/blog">The Hammet Journal</Link>
             <span>LinkedIn: @HammetLabs</span>
           </div>
         </div>

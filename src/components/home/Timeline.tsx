@@ -13,7 +13,7 @@ export default function Timeline() {
           <div
             className="tl-wrap grid reveal"
             id="tlwrap"
-            style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(210px,1fr))' }}
+
           >
             <div className="tl-line"></div>
             <div className="tl-card">
