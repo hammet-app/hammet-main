@@ -418,10 +418,13 @@ export default function Home() {
 
               <Link
                 href="https://hammetfoundation.org"
-                className="mt-6 sm:mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#3B0764] transition hover:bg-[#67E8F9] w-full sm:w-auto min-h-[44px]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 sm:mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold !text-[#3B0764] transition hover:bg-[#67E8F9] hover:!text-[#3B0764] w-full sm:w-auto min-h-[44px] shadow-sm"
+                style={{ color: '#3B0764' }}
               >
-                See the Foundation&apos;s work
-                <ArrowUpRight className="h-4 w-4" />
+                <span style={{ color: '#3B0764' }}>See the Foundation&apos;s work</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0" style={{ color: '#3B0764' }} />
               </Link>
             </div>
 
