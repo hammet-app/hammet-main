@@ -354,17 +354,21 @@ nav.scrolled {
 .menu-btn {
   display: none;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 7px;
   background: var(--paper);
   border: 2px solid var(--indigo);
   color: var(--indigo);
   font-weight: 800;
-  font-size: 14px;
-  padding: 8px 14px;
-  min-height: 44px;
+  font-size: 13.5px;
+  padding: 7px 14px;
+  min-height: 40px;
   border-radius: 999px;
   cursor: pointer;
   font-family: var(--body);
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .mnav-backdrop {
@@ -433,10 +437,53 @@ nav.scrolled {
   .mnav { display: none !important; }
 }
 
-@media (max-width: 500px) {
-  .logo-t span { display: none; }
-  .nav-in .btn { padding: 9px 15px; font-size: 13.5px; }
+@media (max-width: 640px) {
+  .wrap {
+    width: min(100% - 32px, 1200px);
+  }
+  .nav-in {
+    gap: 8px;
+    padding: 10px 0;
+  }
+  .nav-r {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .logo {
+    gap: 8px;
+    min-width: 0;
+  }
+  .logo-t b {
+    font-size: 16px;
+  }
+  .menu-btn {
+    padding: 7px 11px;
+    font-size: 13px;
+    min-height: 38px;
+    gap: 5px;
+  }
+  .nav-in .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-height: 38px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .hide-m { display: none; }
+}
+
+@media (max-width: 340px) {
+  .wrap {
+    width: min(100% - 20px, 1200px);
+  }
+  .logo-t span { display: none; }
+  .menu-btn span:first-child { display: none; }
+  .menu-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -2310,20 +2357,41 @@ footer {
 .dfly .tp {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 14.5px;
+  font-size: clamp(14.5px, 3.5vw, 16px);
   line-height: 1.35;
-  margin-top: auto;
+  margin-top: 14px;
+}
+
+.dfly .sp {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.dfly .sp .av-wrap {
+  --s: 114px;
+}
+
+.dfly .sp span:not(.av-wrap):not(.av-ring):not(.av) {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: .95;
 }
 
 .dfly .when {
-  margin-top: 10px;
+  margin-top: auto;
   font-size: 11.5px;
   font-family: var(--label);
   font-weight: 700;
   letter-spacing: .06em;
   background: #E0FF4D;
   color: #1A0B2E;
-  padding: 5px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
   align-self: flex-start;
 }
