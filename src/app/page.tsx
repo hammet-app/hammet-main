@@ -8,14 +8,27 @@ import {
   GraduationCap,
   Menu,
   Moon,
-  Sparkles,
   Sun,
   Users,
   X,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
+
+function subscribeTheme(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  return () => observer.disconnect();
+}
+
+function getThemeSnapshot() {
+  return document.documentElement.classList.contains('dark');
+}
+
+function getThemeServerSnapshot() {
+  return false;
+}
 
 const NAV_ITEMS = [
   { label: 'Why Hammet', href: '#why-hammet' },
@@ -26,22 +39,20 @@ const NAV_ITEMS = [
 ];
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
+  const dark = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('hammet-theme');
 
     if (saved === 'dark') {
-      setDark(true);
       document.documentElement.classList.add('dark');
     }
   }, []);
 
   const toggleTheme = () => {
-    const next = !dark;
+    const next = !document.documentElement.classList.contains('dark');
 
-    setDark(next);
     document.documentElement.classList.toggle('dark', next);
     localStorage.setItem('hammet-theme', next ? 'dark' : 'light');
   };
@@ -571,8 +582,8 @@ export default function Home() {
               <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">Connect</h3>
 
               <div className="mt-4 flex flex-col gap-3 text-sm text-slate-500 dark:text-white/50">
-                <a href="mailto:admin@hammetlabs.com" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1">
-                  admin@hammetlabs.com
+                <a href="mailto:hammetedu@gmail.com" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1">
+                  hammetedu@gmail.com
                 </a>
                 <a href="tel:07040576412" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1">
                   0704 057 6412

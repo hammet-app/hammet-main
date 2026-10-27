@@ -48,23 +48,23 @@ export default function RoadToLace() {
               AI infrastructure.
             </p>
             <p>
-              I'm only one man, so I cannot do it all myself. That is why the Lagos AI Career
+              I&apos;m only one man, so I cannot do it all myself. That is why the Lagos AI Career
               Experience exists.
             </p>
             <p>
               <b>You are a lawyer, good.</b> How can you integrate AI into your industry?
               <br /> <b>You are an engineer, perfect.</b> How can you build AI infrastructure in
               your sector?
-              <br /> <b>You're a businessman. Lovely.</b> How can you scale your operations using
+              <br /> <b>You&apos;re a businessman. Lovely.</b> How can you scale your operations using
               AI?
-              <br /> <b>You're a banker. Beautiful.</b> How can you get AI into that sector?
+              <br /> <b>You&apos;re a banker. Beautiful.</b> How can you get AI into that sector?
             </p>
             <p className="big">
               This is why L.A.C.E had to happen, so Africa is not left behind in the Future of Work.
             </p>
-            <p>It's my utmost privilege to welcome you on this journey.</p>
+            <p>It&apos;s my utmost privilege to welcome you on this journey.</p>
             <p>
-              <b>Let's build together.</b>
+              <b>Let&apos;s build together.</b>
             </p>
             <div className="sign">
               <span className="av-wrap" style={{ '--s': '76px' }}>

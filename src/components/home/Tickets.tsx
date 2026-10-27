@@ -1,20 +1,22 @@
 import { LINKS } from '@/lib/config';
 import { Comparison } from '@/components/Static';
+import { Assemble } from '@/components/lace/Assemble';
 
 export default function Tickets() {
   return (
     <>
-      <section id="tickets" className="pad">
+      <section id="tickets" className="lace-section lace-tickets">
         <div className="wrap">
-          <div className="sechead reveal">
-            <span className="eyebrow">Tickets</span> <h2>Choose how far you want to go.</h2>
+          <div className="lace-section-heading">
+            <span className="lace-eyebrow">Tickets</span> <h2>Choose how far you want to go.</h2>
             <p className="lead">
               Every ticket includes the full certification training and exam. Higher tiers add
               tools, community and private access.
             </p>
           </div>
+          <Assemble className="tickets-assemble">
           <div className="grid g3" style={{ alignItems: 'stretch' }}>
-            <div className="card tick tilt reveal" style={{ '--d': '0' }}>
+            <div className="card tick">
               <div>
                 <div className="name">Basic Executive</div>
                 <div className="who">For students and anyone starting out</div>
@@ -78,7 +80,7 @@ export default function Tickets() {
                 Get Basic Executive
               </a>
             </div>
-            <div className="card tick featured tilt reveal" style={{ '--d': '1' }}>
+            <div className="card tick featured">
               <div>
                 <div
                   style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}
@@ -139,7 +141,7 @@ export default function Tickets() {
                 Get Advanced Executive
               </a>
             </div>
-            <div className="card tick tilt reveal" style={{ '--d': '2' }}>
+            <div className="card tick">
               <div>
                 <div className="name">Business Executive</div>
                 <div className="who">
@@ -157,7 +159,7 @@ export default function Tickets() {
                   <div className="mc">
                     <b>
                       Private Funding Masterclass One: How to use AI to track the flow or leakage of
-                      funds in your business, even if you don't have a Chief Finance Officer
+                      funds in your business, even if you don&apos;t have a Chief Finance Officer
                     </b>
                     <span className="withs">
                       <span className="avs">
@@ -243,11 +245,12 @@ export default function Tickets() {
               </a>
             </div>
           </div>
+          </Assemble>
           <p className="pl" style={{ fontSize: '14px', color: 'var(--muted)', margin: '26px 0 0' }}>
             Tickets are sold on Selar. After you pay, you are added to the LACE WhatsApp group for
             schedules and reminders.
           </p>
-          <div className="tickets-wl reveal">
+          <div className="tickets-wl">
             <span>
               Not ready to pay yet? Join the waitlist group to get more information and updates.
             </span>
@@ -262,7 +265,7 @@ export default function Tickets() {
             </a>
           </div>
           <h3
-            className="reveal pl"
+            className="ticket-comparison-heading"
             style={{ fontSize: 'clamp(22px,2.6vw,30px)', margin: '80px 0 16px' }}
           >
             Compare tickets side by side
@@ -270,7 +273,7 @@ export default function Tickets() {
           <div className="cmp-scroll-hint">
             <span>Swipe horizontally to compare all 3 tiers &rarr;</span>
           </div>
-          <div className="cmp reveal">
+          <div className="cmp">
             <div className="cmp-in">
               <Comparison></Comparison>
             </div>
