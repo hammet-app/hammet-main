@@ -1,52 +1,61 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { LINKS } from '@/lib/config';
 
-const DISMISS_KEY = 'lace-training-popup-dismissed';
+const subscribeToMobileQuery = (callback: () => void) => {
+  const query = window.matchMedia('(max-width: 700px)');
+  query.addEventListener('change', callback);
+  return () => query.removeEventListener('change', callback);
+};
+
+const isMobileViewport = () => window.matchMedia('(max-width: 700px)').matches;
+const getServerMobileSnapshot = () => false;
 
 export default function TrainingPopup() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (window.sessionStorage.getItem(DISMISS_KEY) === '1') return;
-    } catch {
-      // Storage can be blocked; the popup still works for the current page view.
-    }
-    const timer = window.setTimeout(() => setVisible(true), 850);
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  const dismiss = () => {
-    try {
-      window.sessionStorage.setItem(DISMISS_KEY, '1');
-    } catch {
-      // Keep the in-memory dismissal even when session storage is unavailable.
-    }
-    setVisible(false);
-  };
-
-  if (!visible) return null;
+  const isMobile = useSyncExternalStore(subscribeToMobileQuery, isMobileViewport, getServerMobileSnapshot);
+  const [collapsedOverride, setCollapsedOverride] = useState<boolean | null>(null);
+  const collapsed = collapsedOverride ?? isMobile;
 
   return (
-    <aside className="training-popup" aria-label="LACE ticket offer">
-      <button
-        className="training-popup__close"
-        type="button"
-        onClick={dismiss}
-        aria-label="Close training offer"
-      >
-        <span aria-hidden="true">×</span>
-      </button>
-      <p>
-        2 weeks intensive AI training and certification. The exact sets of knowledge you need to
-        maximize AI and get ahead of everyone else.
-      </p>
-      {/* <Image src="/assets/flyers/lace-flyer.jpg" alt="LACE training flyer" width={480} height={320} /> */}
-      <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-        Buy a ticket
-      </a>
+    <aside
+      className={`training-popup${collapsed ? ' training-popup--collapsed' : ''}`}
+      aria-label="LACE ticket offer"
+    >
+      {collapsed ? (
+        <div className="training-popup__mini">
+          <span>LACE AI certification</span>
+          <button
+            className="training-popup__expand"
+            type="button"
+            onClick={() => setCollapsedOverride(false)}
+            aria-label="Expand training offer"
+          >
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
+      ) : (
+        <>
+          <button
+            className="training-popup__close"
+            type="button"
+            onClick={() => setCollapsedOverride(true)}
+            aria-label="Minimize training offer"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+          <p>
+            2 weeks intensive AI training and certification. The exact sets of knowledge you need to
+            maximize AI and get ahead of everyone else.
+          </p>
+          {/* Add the training flyer here when it is ready:
+          <Image src="/assets/flyers/lace-flyer.jpg" alt="LACE training flyer" width={480} height={320} />
+          */}
+          <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
+            Buy a ticket
+          </a>
+        </>
+      )}
     </aside>
   );
 }

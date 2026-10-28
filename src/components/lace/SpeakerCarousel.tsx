@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { Assemble } from './Assemble';
 import { SPEAKERS } from '@/components/Static';
 
@@ -99,7 +99,6 @@ export default function SpeakerCarousel() {
             exiting={leavingIndex === index}
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${SPEAKERS.length}: ${speaker.n}`}
-            style={{ '--assemble-paper': 'transparent' } as CSSProperties}
           >
             <div
               className="speaker-card__frame"
@@ -111,7 +110,7 @@ export default function SpeakerCarousel() {
                 alt={speaker.n}
                 fill
                 sizes="(max-width: 600px) 84vw, (max-width: 1024px) 48vw, 32vw"
-                priority={index < 2}
+                loading={index < 2 ? 'eager' : 'lazy'}
               />
               <div className="speaker-card__copy">
                 <h3>{speaker.n}</h3>

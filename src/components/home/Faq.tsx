@@ -9,9 +9,9 @@ const QUESTIONS: { question: string; answer: ReactNode }[] = [
     question: 'Is LACE online or in person?',
     answer: (
       <>
-        The Opening Ceremony on 31 October is in person at 10 Kayode Alabi, Ogba, Lagos. The
-        two-week certification training, Monday 2 to Friday 13 November, is fully virtual, so you
-        can join from anywhere.
+        The Opening Event is in person on Saturday November 7, 2026, at 10 Kayode Alabi, Ogba,
+        Lagos. The intensive AI training runs virtually from November 8-20, so you can join from
+        anywhere.
       </>
     ),
   },
@@ -30,7 +30,8 @@ const QUESTIONS: { question: string; answer: ReactNode }[] = [
   },
   {
     question: 'How do I get certified?',
-    answer: 'The exam on Saturday 14 November is compulsory. Complete the training, then score above average to earn your AI certification from Hammet School of AI Foundations.',
+    answer:
+      'The exam on Saturday November 21, 2026 is compulsory. Complete the training, then score above average to earn your AI certification from Hammet School of AI Foundations. Certificates are awarded on December 2, 2026.',
   },
   {
     question: 'Will I get recordings if I miss a session?',

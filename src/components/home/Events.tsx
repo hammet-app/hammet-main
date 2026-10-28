@@ -8,6 +8,7 @@ const BREAKDOWN = [
   ['Akwa Ibom state', '1', 'event'],
   ['Anambra state', '1', 'event'],
 ];
+const MAX_EVENTS = Math.max(...BREAKDOWN.map(([, count]) => Number(count)));
 
 export default function Events() {
   return (
@@ -26,7 +27,17 @@ export default function Events() {
             <li key={state}>
               <Assemble as="article" className="event-breakdown__item" aria-label={`${state} — ${count} ${unit}`}>
                 <h3>{state}</h3>
-                <p className="event-breakdown__count">— <b>{count}</b> {unit}</p>
+                <div
+                  className="event-breakdown__progress"
+                  role="progressbar"
+                  aria-label={`${state} events`}
+                  aria-valuemin={0}
+                  aria-valuemax={MAX_EVENTS}
+                  aria-valuenow={Number(count)}
+                >
+                  <span style={{ width: `${(Number(count) / MAX_EVENTS) * 100}%` }} />
+                </div>
+                <p className="event-breakdown__count"> <b>{count}</b> {unit}</p>
               </Assemble>
             </li>
           ))}
