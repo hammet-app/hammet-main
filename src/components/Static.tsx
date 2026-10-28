@@ -113,7 +113,7 @@ export function Comparison() {
   );
 }
 
-interface SP {
+export interface SP {
   photo: string;
   n: string;
   r: string;
@@ -122,7 +122,7 @@ interface SP {
   bg: string;
   fg: string;
 }
-const SPEAKERS: SP[] = [
+export const SPEAKERS: SP[] = [
   {
     photo: 'prince.png',
     n: 'Mr Prince Obinna',
@@ -130,6 +130,15 @@ const SPEAKERS: SP[] = [
     b: 'A founder for a decade across education and technology ventures. His Konoha community reached 35,000+ youth before he turned to AI education.',
     t: ['Course 1', 'Executive Presence', 'Masterclass'],
     bg: 'linear-gradient(135deg,var(--indigo),var(--cyan))',
+    fg: '#fff',
+  },
+  {
+    photo: 'peter.jpg',
+    n: 'Peter Michalides',
+    r: 'Head of Content and Brand Marketing, Hyrotrader',
+    b: '',
+    t: ['Facilitator'],
+    bg: 'var(--peri)',
     fg: '#fff',
   },
   {

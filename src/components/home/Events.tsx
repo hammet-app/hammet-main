@@ -1,94 +1,57 @@
 import { LINKS } from '@/lib/config';
-import { GalleryRow } from '@/components/Static';
+import { Assemble } from '@/components/lace/Assemble';
+
+const BREAKDOWN = [
+  ['Lagos', '6', 'events'],
+  ['Imo state', '3', 'Events'],
+  ['Oyo state', '2', 'Events'],
+  ['Akwa Ibom state', '1', 'event'],
+  ['Anambra state', '1', 'event'],
+];
+const MAX_EVENTS = Math.max(...BREAKDOWN.map(([, count]) => Number(count)));
 
 export default function Events() {
   return (
-    <>
-      <section id="events" className="pad" style={{ paddingBottom: '40px' }}>
-        <div className="wrap">
-          <div className="sechead reveal">
-            <span className="eyebrow">Previous events by the Hammet team</span>{' '}
-            <h2>We have been in the room before. Thousands of times over.</h2>
-            <p className="lead">
-              The team behind LACE has already put on free, student-led financial conferences at
-              Nigerian universities, plus dozens of virtual events and cohorts.
-            </p>
+    <section id="events" className="lace-section lace-events">
+      <div className="lace-wrap">
+        <Assemble className="lace-section-heading">
+          <span className="lace-eyebrow">Previous events</span>
+          <h2>LACE’s track record.</h2>
+          <p>
+            Within the last 3 years, the team behind LACE has hosted over 2000 people in 13 events
+            across 5 states.
+          </p>
+        </Assemble>
+        <ol className="event-breakdown">
+          {BREAKDOWN.map(([state, count, unit]) => (
+            <li key={state}>
+              <Assemble as="article" className="event-breakdown__item" aria-label={`${state} — ${count} ${unit}`}>
+                <h3>{state}</h3>
+                <div
+                  className="event-breakdown__progress"
+                  role="progressbar"
+                  aria-label={`${state} events`}
+                  aria-valuemin={0}
+                  aria-valuemax={MAX_EVENTS}
+                  aria-valuenow={Number(count)}
+                >
+                  <span style={{ width: `${(Number(count) / MAX_EVENTS) * 100}%` }} />
+                </div>
+                <p className="event-breakdown__count"> <b>{count}</b> {unit}</p>
+              </Assemble>
+            </li>
+          ))}
+        </ol>
+        <Assemble className="events-cta">
+          <div>
+            <b>Join a community that has already shown up.</b>
+            <span>Register for LACE 1.0 and be part of what is next.</span>
           </div>
-          <div className="impact">
-            <div className="stat reveal" style={{ '--d': '0' }}>
-              <b data-count="35000" data-suf="+">
-                0
-              </b>
-              <span>youth impacted in under 36 months</span>
-            </div>
-            <div className="stat reveal" style={{ '--d': '1' }}>
-              <b data-count="6" data-suf="+">
-                0
-              </b>
-              <span>physical conferences since April 2024</span>
-            </div>
-            <div className="stat reveal" style={{ '--d': '2' }}>
-              <b data-count="2000" data-suf="+">
-                0
-              </b>
-              <span>conference attendees</span>
-            </div>
-            <div className="stat reveal" style={{ '--d': '3' }}>
-              <b data-count="50" data-suf="+">
-                0
-              </b>
-              <span>virtual events and webinars</span>
-            </div>
-            <div className="stat reveal" style={{ '--d': '4' }}>
-              <b data-count="1200" data-suf="+">
-                0
-              </b>
-              <span>people trained</span>
-            </div>
-            <div className="stat reveal" style={{ '--d': '5' }}>
-              <b data-count="36" data-suf="+">
-                0
-              </b>
-              <span>schools reached by Hammet in Oyo and Lagos</span>
-            </div>
-          </div>
-          <div className="venues reveal">
-            <span className="chip">UNILAG · 2 editions</span>
-            <span className="chip">FUTO · 2 editions</span>
-            <span className="chip">UI</span>
-            <span className="chip">UNIUYO</span>
-            <span className="chip">2 virtual workshops, 4 weeks each</span>
-          </div>
-        </div>
-        <div className="wrap" style={{ maxWidth: 'none', padding: '0 24px' }}>
-          <div className="gal reveal gal-lines">
-            <div className="gal-row">
-              <GalleryRow which="A"></GalleryRow>
-            </div>
-            <div className="gal-row rev">
-              <GalleryRow which="B"></GalleryRow>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="ctab-wrap">
-        <div className="wrap">
-          <div className="ctab reveal">
-            <div>
-              <b>Join a community that has already shown up.</b>
-              <span>Register for LACE 1.0 and be part of what is next.</span>
-            </div>
-            <a
-              className="btn btn-cyan"
-              href={LINKS.selar}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Register for LACE 1.0 <span className="arr">→</span>
-            </a>
-          </div>
-        </div>
+          <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
+            Register for LACE 1.0 <span aria-hidden="true">→</span>
+          </a>
+        </Assemble>
       </div>
-    </>
+    </section>
   );
 }

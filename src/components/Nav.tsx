@@ -1,7 +1,8 @@
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { LINKS } from '@/lib/config';
 
 const ITEMS = [
@@ -20,9 +21,8 @@ export default function Nav() {
   const cur = (href: string) => (href === path ? 'cur' : undefined);
 
   useEffect(() => {
-    // Close mobile menu on route change or escape key
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
@@ -41,9 +41,9 @@ export default function Nav() {
 
         <div className="nav-r">
           <div className="nav-links">
-            {ITEMS.map((i) => (
-              <Link key={i.href} href={i.href} className={cur(i.href)}>
-                {i.label}
+            {ITEMS.map((item) => (
+              <Link key={item.href} href={item.href} className={cur(item.href)}>
+                {item.label}
               </Link>
             ))}
           </div>
@@ -55,20 +55,17 @@ export default function Nav() {
             aria-expanded={open}
             aria-controls="mnav"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => setOpen((current) => !current)}
           >
             <span>{open ? 'Close' : 'Menu'}</span>
-            <span aria-hidden="true" style={{ fontSize: '18px', lineHeight: 1 }}>
-              {open ? '✕' : '☰'}
+            <span className={`menu-icon${open ? ' menu-icon--open' : ''}`} aria-hidden="true">
+              <i />
+              <i />
+              <i />
             </span>
           </button>
 
-          <a
-            className="btn btn-primary"
-            href={LINKS.selar}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="btn btn-primary" href={LINKS.selar} target="_blank" rel="noopener noreferrer">
             <span>
               Register<span className="hide-m"> for LACE 1.0</span>
             </span>
@@ -76,21 +73,16 @@ export default function Nav() {
         </div>
       </div>
 
-      {open && (
-        <div
-          className="mnav-backdrop"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+      {open ? <div className="mnav-backdrop" onClick={() => setOpen(false)} aria-hidden="true" /> : null}
 
       <div
-        className={'mnav' + (open ? ' open' : '')}
+        className={`mnav${open ? ' open' : ''}`}
         id="mnav"
         role="dialog"
         aria-label="Navigation Menu"
-        onClick={(e) => {
-          if ((e.target as HTMLElement).closest('a')) setOpen(false);
+        aria-modal={open || undefined}
+        onClick={(event) => {
+          if ((event.target as HTMLElement).closest('a')) setOpen(false);
         }}
       >
         <Link href="/" className={cur('/')}>
@@ -99,13 +91,13 @@ export default function Nav() {
         <Link href="/lace" className={cur('/lace')}>
           LACE 1.0 Overview
         </Link>
-        {ITEMS.map((i) => (
-          <Link key={i.href} href={i.href} className={cur(i.href)}>
-            {i.label}
+        {ITEMS.map((item) => (
+          <Link key={item.href} href={item.href} className={cur(item.href)}>
+            {item.label}
           </Link>
         ))}
         <a href={LINKS.waitlist} target="_blank" rel="noopener noreferrer" className="mnav-waitlist">
-          Join the waitlist →
+          Join the waitlist <span aria-hidden="true">→</span>
         </a>
       </div>
     </nav>

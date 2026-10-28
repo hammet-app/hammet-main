@@ -9,7 +9,7 @@ import { BootcampStateSync } from '@/components/Bootcamp';
 export const metadata: Metadata = {
   title: 'Lagos AI Career Experience 1.0 | Hammet School of AI Foundations',
   description:
-    'Theme: Reimagining Work. A two-week intensive AI certification training with compulsory examination. Opening Ceremony 31 October 2026, 10 Kayode Alabi, Ogba, Lagos.',
+    'Lagos AI Career Experience 1.0: two weeks of intensive AI certification training. Virtual training November 7–21, 2026. Physical opening event Saturday November 7, 2026, at 10 Kayode Alabi, Ogba, Lagos.',
 };
 
 export default function LaceLayout({ children }: { children: React.ReactNode }) {

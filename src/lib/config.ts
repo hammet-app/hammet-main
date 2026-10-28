@@ -43,7 +43,7 @@ export const LACE: LaceConfig = {
   },
 
   /* ---------- 2. DATES ---------- */
-  eventStart: '2026-10-31T00:00:00+01:00', // countdown target (Lagos time)
+  eventStart: '2026-11-07T00:00:00+01:00', // opening day at midnight in West Africa Time
   bootcamp: { firstDay: '2026-10-01', days: 21, time: '11pm WAT' },
   /* The bootcamp badge changes by itself using Lagos time:
        before 1 Oct  -> "Starts 1 October"

@@ -1,35 +1,57 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { LACE } from '@/lib/config';
 
-const pad = (n: number) => (n < 10 ? '0' + n : String(n));
+const pad = (value: number) => String(value).padStart(2, '0');
 
 export default function Countdown() {
-  const [s, setS] = useState<number | null>(null);
+  const [secondsLeft, setSecondsLeft] = useState<number | null>(null);
+
   useEffect(() => {
     const target = Date.parse(LACE.eventStart);
-    const tick = () => setS(Math.floor(Math.max(0, target - Date.now()) / 1000));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
+    let interval: number | null = null;
+
+    const tick = () => {
+      const remaining = Math.floor((target - Date.now()) / 1000);
+      if (remaining <= 0) {
+        setSecondsLeft(0);
+        if (interval !== null) window.clearInterval(interval);
+        return;
+      }
+      setSecondsLeft(remaining);
+    };
+
+    const initialTick = window.setTimeout(tick, 0);
+    interval = window.setInterval(tick, 1000);
+    return () => {
+      window.clearTimeout(initialTick);
+      if (interval !== null) window.clearInterval(interval);
+    };
   }, []);
-  const v = s ?? 0;
-  const box = (num: string, label: string) => (
-    <div className="cd-box">
-      <b>{num}</b>
-      <span>{label}</span>
-    </div>
-  );
+
+  const values = secondsLeft === null
+    ? [['--', 'Days'], ['--', 'Hours'], ['--', 'Mins'], ['--', 'Secs']]
+    : [
+        [String(Math.floor(secondsLeft / 86400)), 'Days'],
+        [pad(Math.floor((secondsLeft % 86400) / 3600)), 'Hours'],
+        [pad(Math.floor((secondsLeft % 3600) / 60)), 'Mins'],
+        [pad(secondsLeft % 60), 'Secs'],
+      ];
+
   return (
-    <div className="cd tilt">
-      <div className="cd-lab">Opening Ceremony day in</div>
-      <div className="cd-row" role="timer" aria-live="off">
-        {box(String(Math.floor(v / 86400)), 'Days')}
-        {box(pad(Math.floor((v % 86400) / 3600)), 'Hours')}
-        {box(pad(Math.floor((v % 3600) / 60)), 'Mins')}
-        {box(pad(v % 60), 'Secs')}
+    <div className="lace-countdown">
+      <span className="lace-countdown__label">
+        {secondsLeft === 0 ? 'Opening day is here' : 'Opening day in'}
+      </span>
+      <div className="lace-countdown__row" role="timer" aria-label="Countdown to 7 November 2026">
+        {values.map(([value, label]) => (
+          <div className="lace-countdown__unit" key={label}>
+            <b>{value}</b>
+            <span>{label}</span>
+          </div>
+        ))}
       </div>
-      <div className="cd-foot">Saturday 31 October 2026 · 10 Kayode Alabi, Ogba, Lagos</div>
     </div>
   );
 }
