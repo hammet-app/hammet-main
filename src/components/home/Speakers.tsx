@@ -14,7 +14,7 @@ export default function Speakers() {
         <SpeakerCarousel />
         <Assemble className="speaker-cta">
           <div>
-            <b>Learn from people who have done the work.</b>
+            <b>Learn from experienced AI operators.</b>
             <span>Meet the facilitators and register for LACE 1.0.</span>
           </div>
           <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">

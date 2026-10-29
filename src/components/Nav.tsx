@@ -34,8 +34,8 @@ export default function Nav() {
         <Link className="logo" href="/" aria-label="Hammet">
           <img src="/favicon.ico" width={32} height={32} alt="Hammet" className="logo-img" />
           <div className="logo-t">
-            <b>Hammet</b>
-            <span>School of AI</span>
+            <b className="hide-m">Hammet</b>
+            <span className="hide-m">School of AI</span>
           </div>
         </Link>
 

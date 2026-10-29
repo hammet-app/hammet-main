@@ -133,7 +133,7 @@ export const SPEAKERS: SP[] = [
     fg: '#fff',
   },
   {
-    photo: 'peter.jpg',
+    photo: 'peter.png',
     n: 'Peter Michalides',
     r: 'Head of Content and Brand Marketing, Hyrotrader',
     b: '',
@@ -142,7 +142,7 @@ export const SPEAKERS: SP[] = [
     fg: '#fff',
   },
   {
-    photo: 'lola.jpg',
+    photo: 'lola.png',
     n: 'Mrs Lola Oyafemi',
     r: 'CEO, Oyafemi Group LLC',
     b: '',
@@ -151,7 +151,7 @@ export const SPEAKERS: SP[] = [
     fg: '#fff',
   },
   {
-    photo: 'oluebube.jpg',
+    photo: 'oluebube.png',
     n: 'Mr Oluebube Okafor',
     r: 'CTO, Hammet Limited',
     b: 'Leads engineering at Hammet and builds the AI-powered learning platform behind the training.',
@@ -160,7 +160,7 @@ export const SPEAKERS: SP[] = [
     fg: 'var(--ink)',
   },
   {
-    photo: 'angel.jpg',
+    photo: 'angel.png',
     n: 'Ms Angel Nwafor',
     r: 'COO, Hammet Limited. Founder, Operators Corner',
     b: 'Product and curriculum leader whose Operators Corner platform has empowered 1,000+ professionals in leadership and operations.',
@@ -169,7 +169,7 @@ export const SPEAKERS: SP[] = [
     fg: 'var(--ink)',
   },
   {
-    photo: 'sopuruchukwu.jpg',
+    photo: 'sopuruchukwu.png',
     n: 'Mr Sopuruchukwu Emeka',
     r: 'CEO, Growthvault Limited',
     b: 'Shows business owners how to put their money to work and grow sales fast.',
@@ -178,7 +178,7 @@ export const SPEAKERS: SP[] = [
     fg: 'var(--indigo)',
   },
   {
-    photo: 'chiemela.jpg',
+    photo: 'chiemela.png',
     n: 'Mrs Chiemela Anosike',
     r: 'CEO, Mezzoaid',
     b: 'Walks founders through where grants and investment are, and how to secure them.',
@@ -187,7 +187,7 @@ export const SPEAKERS: SP[] = [
     fg: '#fff',
   },
   {
-    photo: 'andrew.jpg',
+    photo: 'andrew.png',
     n: 'Mr Andrew Oyafemi',
     r: 'CEO, Ercomai Limited',
     b: '',
@@ -196,7 +196,7 @@ export const SPEAKERS: SP[] = [
     fg: 'var(--ink)',
   },
   {
-    photo: 'chimezie.jpg',
+    photo: 'chimezie.png',
     n: 'Mr Chimezie Ukaegbu',
     r: 'Founder, The Cave Network',
     b: '',
