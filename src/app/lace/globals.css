@@ -2900,6 +2900,12 @@ footer {
   line-height: 1.55;
 }
 
+@media (min-width: 901px) {
+  .lace-hero__dates p:last-child {
+    grid-column: 2 / span 2;
+  }
+}
+
 .lace-countdown {
   display: flex;
   width: fit-content;
