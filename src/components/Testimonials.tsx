@@ -4,25 +4,33 @@ import { TESTIMONIALS, type Testimonial } from '@/lib/config';
 
 export function TestimonialCard({ t, full = false }: { t: Testimonial; full?: boolean }) {
   return (
-    <div className={'card q' + (full ? ' full' : '')}>
-      <div className="mark">{'“'}</div>
-      <p className="tx">{t.x}</p>
+    <div className={'card q' + (full ? ' full' : '') + ' testimonial-hover-card'}>
+      {/* Decorative Brand Accent Quote Mark */}
+      <div className="mark" aria-hidden="true">
+        “
+      </div>
+
+      {/* Main Testimonial Text with Crisp High-Contrast & Hover Gradient Reveal */}
+      <p className="tx testimonial-quote-text">{t.x}</p>
+
       {full && t.a ? (
         <div className="act">
           <b>Specific action taken</b>
           {t.a}
         </div>
       ) : null}
+
+      {/* Participant Attribution with Prominent Avatar & Ring */}
       <div className="who">
         <span className="av-wrap">
           <span className="av-ring" />
           <span className="av">
-            <img src={t.f} alt={t.n} />
+            <img src={t.f} alt={t.n} loading="lazy" />
           </span>
         </span>
-        <div>
-          <div className="nm">{t.n}</div>
-          <div className="tt">{t.t}</div>
+        <div className="min-w-0 flex-1">
+          <div className="nm truncate">{t.n}</div>
+          <div className="tt line-clamp-1">{t.t}</div>
         </div>
       </div>
     </div>

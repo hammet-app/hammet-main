@@ -8,7 +8,7 @@ import Events from '@/components/home/Events';
 import Sponsor from '@/components/home/Sponsor';
 import Faq from '@/components/home/Faq';
 import GallerySlideshow from '@/components/lace/GallerySlideshow';
-import TrainingPopup from '@/components/lace/TrainingPopup';
+import LaceEventModal from '@/components/lace/LaceEventModal';
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         <GallerySlideshow />
         <Timeline />
         <Speakers />
-        <TrainingPopup />
+        <LaceEventModal />
         <Tracks />
         <Tickets />
         <TestimonialsSection />

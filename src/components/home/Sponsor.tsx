@@ -13,7 +13,10 @@ export default function Sponsor() {
               20, or every member of staff. Equip people with skills that last.
             </p>
           </div>
-          <a href="mailto:hammetedu@gmail.com?subject=LACE%20sponsorship">
+          <a
+            href="mailto:hammetedu@gmail.com?subject=LACE%20sponsorship"
+            className="btn-sponsor-pill shrink-0 whitespace-nowrap"
+          >
             Talk to us about sponsorship <span aria-hidden="true">→</span>
           </a>
         </Assemble>
