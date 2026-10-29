@@ -34,6 +34,7 @@ export default function Hero() {
             <p>Virtual: November 7th - 21st</p>
             <p>Physical: Saturday November 7th</p>
             <p>Venue: 10 Kayode Alabi, Ogba, Lagos</p>
+            <p>Certification Examination: November 21st</p>
           </div>
           <Countdown />
           <div className="lace-hero__actions">
