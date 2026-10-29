@@ -16,7 +16,8 @@ export default function Home() {
   return (
     <>
       <main className="lace-landing">
-        <SectionRevealAnimations />
+        <PuzzleScrollTransitions />
+        {/*<SectionRevealAnimations />*/}
         <Hero />
         <GallerySlideshow />
         <Timeline />

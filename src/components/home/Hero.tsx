@@ -19,15 +19,11 @@ export default function Hero() {
           priority
           sizes="100vw"
         />
-        <figcaption>
-          Lagos, Nigeria <span aria-hidden="true">·</span> Lekki–Ikoyi Bridge + National Theatre
-        </figcaption>
       </figure>
       <div className="lace-wrap lace-hero__grid">
         <Assemble className="lace-hero__copy">
           <div className="lace-hero__brandline">
             <span>Lagos AI Career Experience 1.0</span>
-            <span>Presented by Hammet School of AI Foundations</span>
           </div>
           <h1 className="lace-hero__title">
             Maximize your <span>AI Advantage:</span>

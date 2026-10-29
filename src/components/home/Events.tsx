@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import { LINKS } from '@/lib/config';
 import { Assemble } from '@/components/lace/Assemble';
 
@@ -11,8 +14,45 @@ const BREAKDOWN = [
 const MAX_EVENTS = Math.max(...BREAKDOWN.map(([, count]) => Number(count)));
 
 export default function Events() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    if (!('IntersectionObserver' in window)) {
+      section.classList.add('lace-reveal--visible');
+      return;
+    }
+
+    let sectionIsVisible = false;
+    const revealWhenUnlocked = () => {
+      if (sectionIsVisible && !document.documentElement.classList.contains('puzzle-lock')) {
+        section.classList.add('lace-reveal--visible');
+        observer.disconnect();
+        unlockObserver.disconnect();
+      }
+    };
+    const observer = new IntersectionObserver((entries) => {
+      sectionIsVisible = Boolean(entries[0]?.isIntersecting);
+      revealWhenUnlocked();
+    }, { threshold: 0.2 });
+    const unlockObserver = new MutationObserver(revealWhenUnlocked);
+
+    observer.observe(section);
+    unlockObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => {
+      observer.disconnect();
+      unlockObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="events" className="lace-section lace-events">
+    <section
+      ref={sectionRef}
+      id="events"
+      className="lace-section lace-events"
+    >
       <div className="lace-wrap">
         <Assemble className="lace-section-heading">
           <span className="lace-eyebrow">Previous events</span>
