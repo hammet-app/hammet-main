@@ -10,17 +10,17 @@ export default function TestimonialsPage() {
           LACE LUXURY TESTIMONIALS HERO HEADER
       ───────────────────────────────────────────── */}
       <header className="relative overflow-hidden bg-gradient-to-b from-[#18052B] via-[#2A0845] to-[#120224] text-white pt-6 pb-16 md:pt-8 md:pb-20 border-b border-purple-900/60 shadow-xl">
-        {/* Full-bleed Testimonials Photographic Background */}
+        {/* Full-bleed Testimonials Photographic Background (g20.jpg) */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
           <Image
-            src="/assets/testimonials/testimonial-bg.jpg"
-            alt="Hammet Alumni & Tech Learners"
+            src="/assets/gallery/g20.jpg"
+            alt="LACE Bootcamp & Event Participants"
             fill
             priority
-            className="object-cover object-center opacity-25 mix-blend-luminosity filter blur-[0.5px]"
-            quality={85}
+            className="object-cover object-[center_35%] opacity-45 filter contrast-105"
+            quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#18052B]/95 via-[#2A0845]/90 to-[#120224]/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#18052B]/80 via-[#2A0845]/70 to-[#120224]/85" />
         </div>
 
         {/* Ambient decorative glow */}

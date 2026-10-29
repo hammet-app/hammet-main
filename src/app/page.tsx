@@ -582,7 +582,7 @@ export default function Home() {
               <h3 className="text-sm font-semibold text-[#3B0764] dark:text-white">Connect</h3>
 
               <div className="mt-4 flex flex-col gap-3 text-sm text-slate-500 dark:text-white/50">
-                <a href="mailto:hammetedu@gmail.com" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1">
+                <a href="mailto:hammetedu@gmail.com" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1 break-all">
                   hammetedu@gmail.com
                 </a>
                 <a href="tel:07040576412" className="transition hover:text-[#5B21B6] dark:hover:text-[#67E8F9] py-1">

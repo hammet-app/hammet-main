@@ -4186,6 +4186,21 @@ footer {
   border-top: 1px solid var(--lace-line);
   background: var(--lace-ivory);
   color: var(--lace-muted);
+  padding-block: 48px clamp(88px, 12vw, 110px) !important;
+}
+
+.lace-page-scope footer .ft a {
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  transition: color .2s;
+  padding: 4px 0;
+}
+
+.lace-page-scope footer .ft div,
+.lace-page-scope footer .ft span,
+.lace-page-scope footer .ft b {
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
 }
 
 .lace-page-scope footer .ft a:hover {
@@ -4195,6 +4210,13 @@ footer {
 .lace-page-scope footer .ft b,
 .lace-page-scope footer .ft div:first-child > div:first-child {
   color: var(--lace-green-deep) !important;
+}
+
+@media (max-width: 540px) {
+  .lace-page-scope footer .ft {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
 }
 
 .lace-page-scope .sticky.show {
@@ -4394,7 +4416,7 @@ footer {
   .faq-item__panel { padding: 0 16px 17px; }
   .training-popup { right: max(16px, env(safe-area-inset-right)); bottom: calc(92px + env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); width: auto; padding: 18px 16px 15px; }
   .training-popup p { margin-right: 35px; font-size: .87rem; }
-  .lace-page-scope footer .ft { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lace-page-scope footer .ft { grid-template-columns: 1fr; gap: 24px; }
 }
 
 @media (max-width: 400px) {
@@ -5774,34 +5796,75 @@ footer {
   flex-wrap: wrap !important;
 }
 
+/* Sponsorship Neo-Brutalist Button (Matching Register for LACE 1.0 - Image 2) */
+.sponsorship-panel > .assemble__content > .btn-sponsor-brutal,
 .sponsorship-panel > .assemble__content > .btn-sponsor-pill,
+.btn-sponsor-brutal,
 .btn-sponsor-pill {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 12px !important;
-  padding: 18px 36px !important;
-  border-radius: 9999px !important;
-  background: linear-gradient(135deg, #7C3AED, #5B21B6) !important;
+  gap: 10px !important;
+  padding: 14px 30px !important;
+  border-radius: 7px !important;
+  background: #5B21B6 !important;
   color: #FFFFFF !important;
+  font-family: var(--display) !important;
   font-weight: 800 !important;
-  font-size: clamp(0.92rem, 1.15vw, 1.05rem) !important;
-  letter-spacing: -0.01em !important;
-  box-shadow: 0 10px 28px rgba(91, 33, 182, 0.45) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem) !important;
+  letter-spacing: 0.02em !important;
+  border: 2.5px solid #180528 !important;
+  box-shadow: 4px 4px 0px #180528 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   text-decoration: none !important;
   cursor: pointer !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
+  position: relative !important;
 }
 
+.sponsorship-panel > .assemble__content > .btn-sponsor-brutal:hover,
 .sponsorship-panel > .assemble__content > .btn-sponsor-pill:hover,
+.btn-sponsor-brutal:hover,
 .btn-sponsor-pill:hover {
-  transform: translateY(-3px) scale(1.02) !important;
-  box-shadow: 0 14px 38px rgba(91, 33, 182, 0.65) !important;
-  background: linear-gradient(135deg, #8B5CF6, #6D28D9) !important;
+  transform: translate(-3px, -3px) !important;
+  box-shadow: 7px 7px 0px #180528, 0 10px 25px rgba(91, 33, 182, 0.45) !important;
+  background: #6D28D9 !important;
   color: #FFFFFF !important;
+}
+
+.sponsorship-panel > .assemble__content > .btn-sponsor-brutal:hover .btn-sponsor-arrow,
+.sponsorship-panel > .assemble__content > .btn-sponsor-pill:hover .btn-sponsor-arrow,
+.btn-sponsor-brutal:hover .btn-sponsor-arrow,
+.btn-sponsor-pill:hover .btn-sponsor-arrow {
+  transform: translateX(6px) !important;
+  color: #22D3EE !important;
+}
+
+.sponsorship-panel > .assemble__content > .btn-sponsor-brutal:active,
+.sponsorship-panel > .assemble__content > .btn-sponsor-pill:active,
+.btn-sponsor-brutal:active,
+.btn-sponsor-pill:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0px #180528 !important;
+}
+
+.btn-sponsor-arrow {
+  display: inline-block !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
+}
+
+@media (max-width: 640px) {
+  .sponsorship-panel > .assemble__content > .btn-sponsor-brutal,
+  .sponsorship-panel > .assemble__content > .btn-sponsor-pill,
+  .btn-sponsor-brutal,
+  .btn-sponsor-pill {
+    width: 100% !important;
+    padding: 13px 18px !important;
+    font-size: 0.88rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }
 
 

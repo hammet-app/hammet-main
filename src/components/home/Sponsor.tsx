@@ -15,9 +15,10 @@ export default function Sponsor() {
           </div>
           <a
             href="mailto:hammetedu@gmail.com?subject=LACE%20sponsorship"
-            className="btn-sponsor-pill shrink-0 whitespace-nowrap"
+            className="btn-sponsor-brutal shrink-0 whitespace-nowrap"
           >
-            Talk to us about sponsorship <span aria-hidden="true">→</span>
+            <span>Talk to us about sponsorship</span>
+            <span className="btn-sponsor-arrow" aria-hidden="true">→</span>
           </a>
         </Assemble>
       </div>
