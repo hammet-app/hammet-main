@@ -1,19 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { LINKS } from '@/lib/config';
 
-const subscribeToMobileQuery = (callback: () => void) => {
-  const query = window.matchMedia('(max-width: 700px)');
-  query.addEventListener('change', callback);
-  return () => query.removeEventListener('change', callback);
-};
-
-const isMobileViewport = () => window.matchMedia('(max-width: 700px)').matches;
-const getServerMobileSnapshot = () => false;
 const COUNTDOWN_SECONDS = 32 * 60 * 60;
 const COUNTDOWN_STORAGE_KEY = 'lace-offer-countdown-end';
+const SECTIONS_BEFORE_REOPEN = 3;
 
 function formatCountdown(totalSeconds: number) {
   const hours = Math.floor(totalSeconds / 3600);
@@ -23,11 +16,56 @@ function formatCountdown(totalSeconds: number) {
 }
 
 export default function TrainingPopup() {
-  const isMobile = useSyncExternalStore(subscribeToMobileQuery, isMobileViewport, getServerMobileSnapshot);
-  const [collapsedOverride, setCollapsedOverride] = useState<boolean | null>(null);
+  const [collapsed, setCollapsed] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [secondsRemaining, setSecondsRemaining] = useState(COUNTDOWN_SECONDS);
-  const collapsed = collapsedOverride ?? isMobile;
+
+  useEffect(() => {
+    if (dismissed) return;
+
+    const sections = document.querySelectorAll<HTMLElement>(
+      '.lace-landing > header, .lace-landing > section',
+    );
+    if (sections.length === 0) return;
+
+    const getCurrentSectionIndex = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      sections.forEach((section, index) => {
+        const bounds = section.getBoundingClientRect();
+        const distance = viewportCenter < bounds.top
+          ? bounds.top - viewportCenter
+          : viewportCenter > bounds.bottom
+            ? viewportCenter - bounds.bottom
+            : 0;
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      return nearestIndex;
+    };
+
+    let previousSectionIndex = getCurrentSectionIndex();
+    let sectionsTraversed = 0;
+    const handleScroll = () => {
+      const currentSectionIndex = getCurrentSectionIndex();
+      sectionsTraversed += Math.abs(currentSectionIndex - previousSectionIndex);
+      previousSectionIndex = currentSectionIndex;
+
+      if (sectionsTraversed >= SECTIONS_BEFORE_REOPEN) {
+        setCollapsed(false);
+        sectionsTraversed %= SECTIONS_BEFORE_REOPEN;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [dismissed]);
 
   useEffect(() => {
     if (dismissed) return;
@@ -78,7 +116,7 @@ export default function TrainingPopup() {
           <button
             className="training-popup__reopen"
             type="button"
-            onClick={() => setCollapsedOverride(false)}
+            onClick={() => setCollapsed(false)}
             aria-label="Reopen LACE 50 percent offer"
           >
             <span className="training-popup__mini-label">50% OFF LACE expires in</span>
@@ -91,21 +129,21 @@ export default function TrainingPopup() {
               {formatCountdown(secondsRemaining)}
             </time>
           </button>
-          <button
+          {/*<button
             className="training-popup__dismiss"
             type="button"
             onClick={() => setDismissed(true)}
             aria-label="Dismiss offer"
           >
             <span aria-hidden="true">{'\u00d7'}</span>
-          </button>
+          </button>*/}
         </div>
       ) : (
         <>
           <button
             className="training-popup__close"
             type="button"
-            onClick={() => setCollapsedOverride(true)}
+            onClick={() => setCollapsed(true)}
             aria-label="Collapse offer"
           >
             <span aria-hidden="true">{'\u00d7'}</span>

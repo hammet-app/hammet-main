@@ -166,7 +166,7 @@ export default function Tickets() {
                         <span className="av-wrap" style={{ '--s': '30px' }}>
                           <span className="av-ring"></span>
                           <span className="av">
-                            <img src="/assets/people/angel.jpg" alt="Ms Angel Nwafor" />
+                            <img src="/assets/people/angel.png" alt="Ms Angel Nwafor" />
                           </span>
                         </span>
                       </span>
@@ -205,7 +205,7 @@ export default function Tickets() {
                           <span className="av-ring"></span>
                           <span className="av">
                             <img
-                              src="/assets/people/sopuruchukwu.jpg"
+                              src="/assets/people/sopuruchukwu.png"
                               alt="Mr Sopuruchukwu Emeka"
                             />
                           </span>
@@ -226,7 +226,7 @@ export default function Tickets() {
                         <span className="av-wrap" style={{ '--s': '30px' }}>
                           <span className="av-ring"></span>
                           <span className="av">
-                            <img src="/assets/people/chiemela.jpg" alt="Mrs Chiemela Anosike" />
+                            <img src="/assets/people/chiemela.png" alt="Mrs Chiemela Anosike" />
                           </span>
                         </span>
                       </span>
