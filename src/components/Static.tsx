@@ -162,7 +162,7 @@ export const SPEAKERS: SP[] = [
   {
     photo: 'angel.png',
     n: 'Ms Angel Nwafor',
-    r: 'COO, Hammet Limited. Founder, Operators Corner',
+    r: 'COO, Hammet Limited and Founder, Operators Corner',
     b: 'Product and curriculum leader whose Operators Corner platform has empowered 1,000+ professionals in leadership and operations.',
     t: ['Course 3', 'Masterclass'],
     bg: 'var(--lime)',

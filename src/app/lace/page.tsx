@@ -9,14 +9,12 @@ import Sponsor from '@/components/home/Sponsor';
 import Faq from '@/components/home/Faq';
 import GallerySlideshow from '@/components/lace/GallerySlideshow';
 import TrainingPopup from '@/components/lace/TrainingPopup';
-import PuzzleScrollTransitions from '@/components/lace/PuzzleScrollTransitions'
-import SectionRevealAnimations from '@/components/lace/SectionRevealAnimations';
 
 export default function Home() {
   return (
     <>
       <main className="lace-landing">
-        <PuzzleScrollTransitions />
+        {/* Puzzle transitions are disabled so the page uses native smooth scrolling. */}
         {/*<SectionRevealAnimations />*/}
         <Hero />
         <GallerySlideshow />
