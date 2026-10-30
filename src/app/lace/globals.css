@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400..1000&display=swap');
+
 :root {
+  /* Keep the legacy defaults for non-LACE routes if this global sheet remains cached. */
   --bg: #F6F5F0;
   --paper: #FFFFFF;
   --ink: #1A0B2E;
@@ -2577,16 +2580,63 @@ footer {
 
 /* LACE editorial landing page */
 .lace-page-scope {
-  --lace-ivory: var(--bg);
-  --lace-paper: var(--paper);
-  --lace-ink: var(--ink);
-  --lace-muted: var(--muted);
+  /* LACE-only design tokens: the global site palette stays unchanged. */
+  --color-purple-dark: #1B1340;
+  --color-purple: #6B2FD6;
+  --color-purple-mid: #6B2FD6;
+  --color-purple-light: #E9DCFF;
+  --color-cyan: #19E0E8;
+  --color-cyan-dark: #1B1340;
+  --lace-pink: #FF6FA8;
+  --lace-yellow: #FFD23F;
+  --lace-mint: #B8F2A5;
+  --lace-cream: #FFF4D6;
+  --lace-pale-blue: #D8EFFF;
+  --lace-pale-yellow: #FFF1B8;
+  --lace-pale-peach: #FFE3D1;
+  --lace-pale-mint: #D4F7EF;
+  --lace-white: #FFFFFF;
+  --lace-purple-dark-rgb: 27 19 64;
+  --lace-purple-rgb: 107 47 214;
+  --lace-cyan-rgb: 25 224 232;
+  --lace-ivory: var(--lace-cream);
+  --lace-paper: var(--lace-white);
+  --lace-ink: var(--color-purple-dark);
+  --lace-muted: rgb(var(--lace-purple-dark-rgb) / 76%);
   --lace-green: var(--color-purple);
   --lace-green-deep: var(--color-purple-dark);
   --lace-green-light: var(--color-purple-light);
-  --lace-amber: var(--color-cyan);
-  --lace-line: var(--line);
+  --lace-amber: var(--lace-yellow);
+  --lace-line: var(--color-purple-dark);
   --lace-purple: var(--color-purple);
+  --bg: var(--lace-cream);
+  --paper: var(--lace-white);
+  --ink: var(--color-purple-dark);
+  --muted: var(--lace-muted);
+  --indigo: var(--color-purple);
+  --peri: var(--color-purple-light);
+  --peritint: var(--color-purple-light);
+  --cyan: var(--color-cyan);
+  --cyantint: var(--lace-pale-blue);
+  --lime: var(--lace-yellow);
+  --line: var(--color-purple-dark);
+  --display: 'Nunito Sans', 'Nunito', 'Plus Jakarta Sans', var(--font-dm-sans), system-ui, sans-serif;
+  --body: 'Nunito Sans', 'Nunito', 'Plus Jakarta Sans', var(--font-dm-sans), system-ui, sans-serif;
+  --label: 'Nunito Sans', 'Nunito', 'Plus Jakarta Sans', var(--font-dm-sans), system-ui, sans-serif;
+  --lace-space-1: 4px;
+  --lace-space-2: 8px;
+  --lace-space-3: 12px;
+  --lace-space-4: 16px;
+  --lace-space-5: 20px;
+  --lace-space-6: 24px;
+  --lace-space-8: 32px;
+  --lace-space-10: 40px;
+  --lace-space-12: 48px;
+  --lace-space-16: 64px;
+  --lace-radius-card: 18px;
+  --lace-radius-panel: 24px;
+  --lace-border: 2px solid var(--color-purple-dark);
+  --lace-shadow: 4px 4px 0 var(--color-purple-dark);
   color: var(--lace-ink);
   background: var(--lace-ivory);
   font-family: var(--body);
@@ -2607,7 +2657,7 @@ footer {
 }
 
 .lace-page-scope nav#nav.scrolled {
-  box-shadow: 0 8px 24px rgb(59 7 100 / 8%);
+  box-shadow: 0 8px 24px rgb(var(--lace-purple-dark-rgb) / 8%);
 }
 
 .lace-page-scope nav#nav .nav-in {
@@ -2761,7 +2811,7 @@ footer {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(100deg, rgba(7, 75, 100, 0.78) 0%, rgb(59 7 100 / 58%) 48%, rgb(59 7 100 / 42%) 100%),
+  background: linear-gradient(100deg, rgba(7, 75, 100, 0.78) 0%, rgb(var(--lace-purple-dark-rgb) / 58%) 48%, rgb(var(--lace-purple-dark-rgb) / 42%) 100%),
     linear-gradient(0deg, rgb(26 4 46 / 36%), rgb(26 4 46 / 8%) 55%, rgb(26 4 46 / 22%));
   content: "";
   pointer-events: none;
@@ -2780,12 +2830,14 @@ footer {
   object-fit: cover;
   object-position: center 54%;
   opacity: .58;
+  filter: brightness(1);
   transform: scale(1.01);
-  transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1);
+  transition: opacity .7s cubic-bezier(.22,.61,.36,1), filter .35s ease, transform .9s cubic-bezier(.22,.61,.36,1);
 }
 
 .lace-hero:hover .lace-hero__backdrop-art {
   opacity: 1;
+  filter: brightness(1.18);
   transform: scale(1.035);
 }
 
@@ -2840,7 +2892,7 @@ footer {
 
 .lace-hero__brandline span:first-child {
   padding: 7px 11px;
-  border: 1px solid rgb(6 182 212 / 70%);
+  border: 1px solid rgb(var(--lace-cyan-rgb) / 70%);
   border-radius: 2px;
   background: var(--color-cyan);
   color: var(--color-purple-dark);
@@ -2893,7 +2945,7 @@ footer {
   margin: 0;
   padding: 9px 15px;
   border: 1px solid rgb(237 233 254 / 45%);
-  background: rgb(59 7 100 / 30%);
+  background: rgb(var(--lace-purple-dark-rgb) / 30%);
   color: #fff;
   font-size: clamp(.83rem, 1.05vw, 1rem);
   font-weight: 650;
@@ -2982,7 +3034,7 @@ footer {
 
 .lace-hero .lace-button--secondary {
   border-color: rgb(237 233 254 / 70%);
-  background: rgb(59 7 100 / 24%);
+  background: rgb(var(--lace-purple-dark-rgb) / 24%);
   color: #fff;
 }
 
@@ -3412,7 +3464,7 @@ footer {
   gap: 20px;
   padding: clamp(18px, 2.4vw, 29px);
   border: 1px solid rgb(237 233 254 / 24%);
-  background: rgb(91 33 182 / 24%);
+  background: rgb(var(--lace-purple-rgb) / 24%);
   color: var(--lace-paper);
 }
 
@@ -3446,7 +3498,7 @@ footer {
 
 .track-card--final {
   border-color: var(--lace-amber);
-  background: rgb(6 182 212 / 15%);
+  background: rgb(var(--lace-cyan-rgb) / 15%);
 }
 
 .lace-tickets {
@@ -3905,7 +3957,7 @@ footer {
   border-radius: 18px;
   background: radial-gradient(ellipse at 100% 0%, rgb(139 92 246 / 40%), transparent 44%), linear-gradient(145deg, #35105f 0%, #260747 58%, #160326 100%);
   color: #fff;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 22%), 0 0 0 1px rgb(103 232 249 / 24%), 0 3px 0 #0e7490, 0 9px 0 rgb(36 6 59 / 78%), 0 28px 60px rgb(26 11 46 / 48%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 22%), 0 0 0 1px rgb(var(--lace-cyan-rgb) / 24%), 0 3px 0 var(--color-cyan-dark), 0 9px 0 rgb(var(--lace-purple-dark-rgb) / 78%), 0 28px 60px rgb(26 11 46 / 48%);
   animation: popup-settle .5s cubic-bezier(.22,.61,.36,1) both;
   animation-delay: .04s;
   transition: width .24s cubic-bezier(.22,.61,.36,1), max-height .3s cubic-bezier(.22,.61,.36,1), padding .24s cubic-bezier(.22,.61,.36,1);
@@ -3913,7 +3965,7 @@ footer {
 
 .training-popup:hover {
   transform: translateY(-3px);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 22%), 0 0 0 1px rgb(6 182 212 / 28%), 0 4px 0 rgb(14 116 144 / 82%), 0 11px 0 rgb(36 6 59 / 72%), 0 30px 56px rgb(26 11 46 / 46%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 22%), 0 0 0 1px rgb(var(--lace-cyan-rgb) / 28%), 0 4px 0 rgb(var(--lace-purple-dark-rgb) / 82%), 0 11px 0 rgb(var(--lace-purple-dark-rgb) / 72%), 0 30px 56px rgb(26 11 46 / 46%);
 }
 
 .training-popup--collapsed {
@@ -3961,8 +4013,8 @@ footer {
   border: 1px solid rgb(165 243 252 / 82%);
   border-radius: 8px;
   background: linear-gradient(135deg, #a5f3fc, #67e8f9);
-  color: #3b0764;
-  box-shadow: 0 2px 0 #0e7490, 0 4px 9px rgb(6 182 212 / 22%);
+  color: var(--color-purple-dark);
+  box-shadow: 0 2px 0 var(--color-cyan-dark), 0 4px 9px rgb(var(--lace-cyan-rgb) / 22%);
   font-family: var(--label);
   font-size: calc(.76rem - 2pt);
   font-variant-numeric: tabular-nums;
@@ -4050,13 +4102,13 @@ footer {
   border: 1px solid rgb(255 255 255 / 70%);
   border-radius: 8px;
   background: linear-gradient(110deg, #67e8f9, #c4b5fd);
-  color: #3b0764;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 78%), 0 2px 0 #0e7490;
+  color: var(--color-purple-dark);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 78%), 0 2px 0 var(--color-cyan-dark);
   white-space: nowrap;
 }
 
 .training-popup__promo > strong {
-  color: #3b0764;
+  color: var(--color-purple-dark);
   font-size: .95rem;
   font-weight: 950;
   letter-spacing: .02em;
@@ -4064,7 +4116,7 @@ footer {
 }
 
 .training-popup__promo-note {
-  color: #3b0764;
+  color: var(--color-purple-dark);
   font-size: .82rem;
   font-weight: 800;
   line-height: 1;
@@ -4080,7 +4132,7 @@ footer {
   border: 2px solid #67e8f9;
   border-radius: 14px;
   background: linear-gradient(135deg, #a5f3fc, #8b5cf6 42%, #d8b4fe 100%);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 70%), 0 4px 0 #0e7490, 0 11px 22px rgb(10 2 20 / 26%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 70%), 0 4px 0 var(--color-cyan-dark), 0 11px 22px rgb(10 2 20 / 26%);
 }
 
 .training-popup__flyer img {
@@ -4110,7 +4162,7 @@ footer {
   padding: 8px 12px;
   border: 1px solid rgb(192 132 252 / 50%);
   border-radius: 12px;
-  background: linear-gradient(145deg, rgb(22 3 38 / 94%), rgb(59 7 100 / 90%));
+  background: linear-gradient(145deg, rgb(var(--lace-purple-dark-rgb) / 94%), rgb(var(--lace-purple-dark-rgb) / 90%));
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 13%), 0 4px 12px rgb(0 0 0 / 22%);
 }
 
@@ -4143,7 +4195,7 @@ footer {
   padding: 10px 12px;
   border: 1px solid rgb(224 231 255 / 82%);
   border-radius: 12px;
-  background: linear-gradient(145deg, #c084fc 0%, #8b5cf6 48%, #6d28d9 100%);
+  background: linear-gradient(145deg, var(--color-purple-mid) 0%, var(--color-purple) 48%, var(--color-purple-mid) 100%);
   color: #fff;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 38%), 0 4px 0 #4c1d95, 0 11px 20px rgb(139 92 246 / 30%);
   font-size: calc(.84rem - 2pt);
@@ -4182,7 +4234,7 @@ footer {
 .lace-page-scope .sticky.show {
   background: var(--lace-paper);
   border-color: var(--lace-line);
-  box-shadow: 0 -6px 22px rgb(59 7 100 / 8%);
+  box-shadow: 0 -6px 22px rgb(var(--lace-purple-dark-rgb) / 8%);
 }
 
 .lace-page-scope .sticky .btn-primary {
@@ -4260,6 +4312,507 @@ footer {
 
 .lace-page-scope.jigsaw-transition-active {
   will-change: auto;
+}
+
+/* LACE brand system: bold type, outlined surfaces and offset shadows. */
+.lace-page-scope {
+  color: var(--color-purple-dark);
+  background: var(--lace-cream);
+  font-family: var(--body);
+  font-weight: 600;
+}
+
+.lace-page-scope h1,
+.lace-page-scope h2,
+.lace-page-scope h3,
+.lace-page-scope h4 {
+  color: var(--color-purple-dark);
+  font-family: var(--display);
+  font-weight: 900;
+}
+
+.lace-page-scope p {
+  line-height: 1.65;
+}
+
+.lace-page-scope :focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 3px;
+}
+
+.lace-landing > .lace-timeline { background: var(--lace-cream); }
+.lace-landing > .lace-speakers { background: var(--lace-pale-blue); }
+.lace-landing > .lace-tickets { background: var(--lace-pale-yellow); }
+.lace-landing > .lace-testimonials { background: var(--lace-pale-mint); }
+.lace-landing > .lace-events { background: var(--lace-pale-blue); }
+.lace-landing > .lace-faq { background: var(--lace-pale-peach); }
+
+.lace-landing > .lace-timeline,
+.lace-landing > .lace-speakers,
+.lace-landing > .lace-tickets,
+.lace-landing > .lace-testimonials,
+.lace-landing > .lace-events,
+.lace-landing > .lace-faq {
+  --assemble-paper: transparent;
+}
+
+.lace-section {
+  padding-block: clamp(40px, 6vw, 64px);
+}
+
+.lace-section-heading h2,
+.lace-tickets .lace-section-heading h2,
+.lace-section-heading p {
+  color: var(--color-purple-dark);
+}
+
+.lace-eyebrow {
+  color: var(--color-purple);
+  font-family: var(--label);
+  font-weight: 800;
+}
+
+.lace-eyebrow::before {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--lace-pink);
+}
+
+.lace-hero {
+  border-bottom: var(--lace-border);
+  background: var(--color-purple-dark);
+}
+
+.lace-hero::before {
+  background: linear-gradient(100deg, rgb(var(--lace-purple-dark-rgb) / 86%) 0%, rgb(var(--lace-purple-dark-rgb) / 66%) 54%, rgb(var(--lace-purple-dark-rgb) / 38%) 100%);
+}
+
+.lace-hero__title,
+.lace-hero__subhead,
+.lace-hero__dates p {
+  color: var(--lace-white);
+}
+
+.lace-hero__title span {
+  color: var(--lace-yellow);
+}
+
+.lace-hero__brandline span:first-child {
+  border: var(--lace-border);
+  border-radius: 999px;
+  background: var(--lace-pink);
+  color: var(--color-purple-dark);
+  font-weight: 800;
+}
+
+.lace-button,
+.lace-page-scope .btn,
+.speaker-cta > .assemble__content > a,
+.events-cta > .assemble__content > a,
+.sponsorship-panel > .assemble__content > a,
+.faq-cta > .assemble__content > a,
+.testimonials-link > a {
+  min-height: 52px;
+  border: var(--lace-border);
+  border-radius: 999px;
+  box-shadow: var(--lace-shadow);
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 900;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.lace-button:hover,
+.lace-page-scope .btn:hover,
+.speaker-cta > .assemble__content > a:hover,
+.events-cta > .assemble__content > a:hover,
+.sponsorship-panel > .assemble__content > a:hover,
+.faq-cta > .assemble__content > a:hover,
+.testimonials-link > a:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 5px 6px 0 var(--color-purple-dark);
+}
+
+.lace-button:active,
+.lace-page-scope .btn:active,
+.speaker-cta > .assemble__content > a:active,
+.events-cta > .assemble__content > a:active,
+.sponsorship-panel > .assemble__content > a:active,
+.faq-cta > .assemble__content > a:active,
+.testimonials-link > a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-purple-dark);
+}
+
+.lace-button--primary,
+.speaker-cta > .assemble__content > a,
+.events-cta > .assemble__content > a,
+.faq-cta > .assemble__content > a,
+.testimonials-link > a,
+.lace-page-scope .btn-primary {
+  border-color: var(--color-purple-dark);
+  background: var(--color-purple);
+  color: var(--lace-white);
+}
+
+.lace-button--primary:hover,
+.lace-page-scope .btn-primary:hover {
+  background: var(--color-purple-dark);
+}
+
+.lace-button--secondary,
+.lace-page-scope .btn-ghost {
+  border: var(--lace-border);
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+}
+
+.lace-button--secondary:hover,
+.lace-page-scope .btn-ghost:hover {
+  background: var(--lace-pink);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .btn-cyan {
+  border-color: var(--color-purple-dark);
+  background: var(--color-cyan);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope nav#nav {
+  border-bottom: var(--lace-border);
+  background: var(--lace-white);
+}
+
+.lace-page-scope nav#nav .logo-t b,
+.lace-page-scope nav#nav .nav-links a:hover,
+.lace-page-scope nav#nav .nav-links a.cur {
+  color: var(--color-purple);
+}
+
+.lace-page-scope nav#nav .nav-links a::after {
+  background: var(--lace-pink);
+}
+
+.lace-page-scope nav#nav .menu-btn {
+  border: var(--lace-border);
+  border-radius: 999px;
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .mnav {
+  border: var(--lace-border);
+  border-radius: var(--lace-radius-panel);
+  box-shadow: var(--lace-shadow);
+}
+
+.lace-page-scope .mnav a:hover,
+.lace-page-scope .mnav a.cur {
+  background: var(--color-purple-light);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .timeline-card,
+.lace-page-scope .speaker-cta,
+.lace-page-scope .events-cta,
+.lace-page-scope .faq-cta,
+.lace-page-scope .track-card,
+.lace-page-scope .lace-tickets .card.tick,
+.lace-page-scope .lace-testimonials .tgal .card.q,
+.lace-page-scope .faq-item,
+.lace-page-scope .sponsorship-panel {
+  border: var(--lace-border);
+  border-radius: var(--lace-radius-card);
+  box-shadow: var(--lace-shadow);
+}
+
+.lace-page-scope .timeline-card,
+.lace-page-scope .lace-tickets .card.tick,
+.lace-page-scope .lace-testimonials .tgal .card.q,
+.lace-page-scope .faq-item {
+  background: var(--lace-white);
+}
+
+.lace-page-scope .timeline-card h3,
+.lace-page-scope .lace-tickets .card.tick h3,
+.lace-page-scope .faq-item h3 button {
+  color: var(--color-purple-dark);
+  font-weight: 900;
+}
+
+.lace-page-scope .timeline-card__index {
+  border: var(--lace-border);
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+  font-weight: 900;
+}
+
+.lace-page-scope .speaker-card {
+  overflow: hidden;
+  border: var(--lace-border);
+  border-radius: var(--lace-radius-card);
+  box-shadow: var(--lace-shadow);
+}
+
+.lace-page-scope .speaker-card__copy {
+  background: var(--color-purple-dark);
+  color: var(--lace-white);
+}
+
+.lace-page-scope .speaker-card__copy h3 {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 4px 10px;
+  border: var(--lace-border);
+  border-radius: 12px;
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.lace-page-scope .speaker-card__role {
+  flex: 0 0 auto;
+  color: var(--lace-white);
+  font-weight: 800;
+}
+
+.lace-page-scope .speaker-carousel__controls button {
+  border: var(--lace-border);
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+  box-shadow: 2px 2px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .speaker-carousel__indicators button[aria-current="true"]::before {
+  background: var(--lace-pink);
+}
+
+.lace-page-scope .speaker-carousel__indicators button::before {
+  background: rgb(var(--lace-purple-dark-rgb) / 30%);
+}
+
+.lace-landing > .lace-tracks {
+  --assemble-paper: var(--color-purple-dark);
+  background: var(--color-purple-dark);
+}
+
+.lace-tracks .lace-section-heading h2,
+.lace-tracks .lace-section-heading p,
+.lace-tracks .lace-eyebrow {
+  color: var(--lace-white);
+}
+
+.lace-tracks .lace-eyebrow::before {
+  background: var(--lace-yellow);
+}
+
+.lace-page-scope .track-card {
+  background: var(--lace-white);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .track-card h3 {
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .track-card__number {
+  color: var(--color-purple);
+}
+
+.lace-page-scope .track-card--final {
+  border-color: var(--color-purple-dark);
+  background: var(--lace-yellow);
+}
+
+.lace-page-scope .lace-tickets .card.tick.featured {
+  border: 3px solid var(--color-purple-dark);
+  background: var(--lace-pale-yellow);
+  box-shadow: 6px 6px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .lace-tickets .tick .name,
+.lace-page-scope .lace-tickets .tick .price {
+  color: var(--color-purple-dark);
+  font-weight: 900;
+}
+
+.lace-page-scope .lace-tickets .pop,
+.lace-page-scope .lace-hero__brandline span:first-child {
+  background: var(--lace-pink);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .event-breakdown__item {
+  border-bottom: var(--lace-border);
+}
+
+.lace-page-scope .event-breakdown__progress {
+  height: 14px;
+  border: 2px solid var(--color-purple-dark);
+  background: var(--lace-pale-mint);
+}
+
+.lace-page-scope .event-breakdown__progress span {
+  background: var(--lace-mint);
+}
+
+.lace-page-scope .event-breakdown__count b {
+  color: var(--color-purple);
+  font-weight: 900;
+}
+
+.lace-landing > .lace-sponsorship {
+  --assemble-paper: var(--lace-yellow);
+  background: var(--lace-yellow);
+}
+
+.lace-page-scope .sponsorship-panel {
+  background: var(--lace-pale-yellow);
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .sponsorship-panel h2,
+.lace-page-scope .sponsorship-panel p {
+  color: var(--color-purple-dark);
+}
+
+.lace-page-scope .sponsorship-panel .lace-eyebrow {
+  color: var(--color-purple);
+}
+
+.lace-page-scope .sponsorship-panel > .assemble__content > a {
+  border: var(--lace-border);
+  background: var(--color-purple);
+  color: var(--lace-white);
+  box-shadow: var(--lace-shadow);
+}
+
+.lace-page-scope .sponsorship-panel > .assemble__content > a:hover {
+  background: var(--color-purple-dark);
+  color: var(--lace-white);
+}
+
+.lace-page-scope .faq-item {
+  background: var(--lace-white);
+}
+
+.lace-page-scope .faq-item h3 button[aria-expanded="true"] {
+  color: var(--color-purple);
+}
+
+.lace-page-scope .faq-item__icon {
+  border: var(--lace-border);
+  background: var(--lace-pale-blue);
+  color: var(--color-purple-dark);
+  font-weight: 900;
+}
+
+.lace-page-scope footer {
+  border-top: var(--lace-border);
+  background: var(--color-purple-dark);
+  color: var(--lace-white);
+}
+
+.lace-page-scope footer .ft b,
+.lace-page-scope footer .ft div:first-child > div:first-child,
+.lace-page-scope footer .ft a,
+.lace-page-scope footer .ft span {
+  color: var(--lace-white) !important;
+}
+
+.lace-page-scope footer .ft a:hover {
+  color: var(--lace-yellow) !important;
+}
+
+.lace-page-scope .sticky.show {
+  border: var(--lace-border);
+  background: var(--lace-white);
+  box-shadow: 0 -4px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .sticky .btn-primary {
+  background: var(--color-purple);
+}
+
+.lace-page-scope .training-popup {
+  border: var(--lace-border);
+  border-radius: var(--lace-radius-panel);
+  background: var(--color-purple-dark);
+  box-shadow: var(--lace-shadow);
+}
+
+.lace-page-scope .training-popup__mini-countdown,
+.lace-page-scope .training-popup__promo {
+  border: var(--lace-border);
+  background: var(--lace-yellow);
+  color: var(--color-purple-dark);
+  box-shadow: 2px 2px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .training-popup__flyer {
+  border: var(--lace-border);
+  background: var(--lace-pale-blue);
+  box-shadow: 3px 3px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .training-popup__countdown {
+  border: var(--lace-border);
+  border-radius: var(--lace-radius-card);
+  background: var(--color-purple);
+  box-shadow: 3px 3px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .training-popup__eyebrow,
+.lace-page-scope .training-popup__countdown-label {
+  color: var(--color-cyan);
+}
+
+.lace-page-scope .training-popup__action-row > a {
+  border: var(--lace-border);
+  background: var(--color-cyan);
+  color: var(--color-purple-dark);
+  box-shadow: 3px 3px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope .training-popup__action-row > a:hover {
+  box-shadow: 4px 5px 0 var(--color-purple-dark);
+}
+
+.lace-page-scope input,
+.lace-page-scope select,
+.lace-page-scope textarea {
+  min-height: 48px;
+  border: var(--lace-border);
+  border-radius: 14px;
+  background: var(--lace-white);
+  color: var(--color-purple-dark);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lace-page-scope .timeline-card,
+  .lace-page-scope .track-card,
+  .lace-page-scope .lace-tickets .card.tick,
+  .lace-page-scope .lace-testimonials .tgal .card.q,
+  .lace-page-scope .faq-item {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .lace-page-scope .timeline-card:hover,
+  .lace-page-scope .track-card:hover,
+  .lace-page-scope .lace-tickets .card.tick:hover,
+  .lace-page-scope .lace-testimonials .tgal .card.q:hover,
+  .lace-page-scope .faq-item:hover {
+    transform: translate(-1px, -2px);
+    box-shadow: 5px 6px 0 var(--color-purple-dark);
+  }
 }
 
 @keyframes lace-speaker-slip {
