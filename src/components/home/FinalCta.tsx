@@ -22,7 +22,7 @@ export default function FinalCta() {
             ></div>
             <h2 style={{ position: 'relative' }}>The AI shift is already here. Be ready for it.</h2>
             <p style={{ position: 'relative' }}>
-              Join LACE 1.0 on 31 October and earn your AI certification on 14 November.
+              LACE 1.0 has ended. Thank you to everyone who took part. Stay tuned for future updates.
             </p>
             <div className="btnrow">
               <a
@@ -31,7 +31,7 @@ export default function FinalCta() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Register for LACE 1.0 <span className="arr">→</span>
+                View event details <span className="arr">→</span>
               </a>
               <a
                 className="btn btn-ghost"
@@ -46,7 +46,7 @@ export default function FinalCta() {
               <a href="https://hammetedu.com/LACE">hammetedu.com/LACE</a>
               <a href={`tel:${LINKS.phone}`}>Call or WhatsApp {LINKS.phoneNice}</a>
               <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-                selar.com/hammetlace
+                LACE 1.0 event details
               </a>
             </div>
           </div>

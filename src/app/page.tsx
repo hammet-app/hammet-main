@@ -74,17 +74,17 @@ export default function Home() {
 
           <span className="hidden text-white/40 sm:inline">•</span>
 
-          <span className="text-white/80">Reimagining Work. 25 September.</span>
+          <span className="text-white/80">Thank you to everyone who joined us.</span>
 
           <span className="hidden text-white/40 sm:inline">•</span>
 
-          <span className="font-semibold text-[#67E8F9]">Tickets from ₦2,000</span>
+          <span className="font-semibold text-[#67E8F9]">LACE 1.0 has ended</span>
 
           <Link
             href="/lace"
             className="inline-flex items-center gap-1 font-semibold text-white underline underline-offset-4 transition hover:text-[#67E8F9] py-1 px-2 rounded-md hover:bg-white/10"
           >
-            Get your ticket
+            See event details
             <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </div>
@@ -468,7 +468,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 sm:gap-8 rounded-[2rem] bg-white p-6 sm:p-10 shadow-[0_20px_60px_rgba(59,7,100,0.08)] lg:flex-row lg:items-center lg:justify-between dark:bg-white/[0.05] dark:shadow-none">
             <div>
               <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-[#06B6D4]">
-                25 September
+                Event complete
               </p>
 
               <h2 className="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3B0764] dark:text-white">
@@ -476,7 +476,7 @@ export default function Home() {
               </h2>
 
               <p className="mt-2 sm:mt-3 text-sm sm:text-base text-slate-600 dark:text-white/60">
-                Reimagining Work. Tickets from ₦2,000.
+                LACE 1.0 has ended. Stay tuned for updates on future Hammet events.
               </p>
             </div>
 
@@ -484,7 +484,7 @@ export default function Home() {
               href="/lace"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#5B21B6] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#6D28D9] w-full sm:w-auto min-h-[44px]"
             >
-              Get your ticket
+              View LACE 1.0
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

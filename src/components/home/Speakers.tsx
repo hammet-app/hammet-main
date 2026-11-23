@@ -15,10 +15,10 @@ export default function Speakers() {
         <Assemble className="speaker-cta">
           <div>
             <b>Learn from experienced AI operators.</b>
-            <span>Meet the facilitators and register for LACE 1.0.</span>
+            <span>Meet the facilitators who led the LACE 1.0 experience.</span>
           </div>
           <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-            Register for LACE 1.0 <span aria-hidden="true">→</span>
+            View event details <span aria-hidden="true">→</span>
           </a>
         </Assemble>
       </div>

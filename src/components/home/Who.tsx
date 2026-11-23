@@ -115,7 +115,7 @@ export default function Who() {
           <div className="ctab reveal">
             <div>
               <b>Find your place in the AI shift.</b>
-              <span>Seats are limited. Register on Selar in two minutes.</span>
+              <span>LACE 1.0 has ended. Stay tuned for updates on future events.</span>
             </div>
             <a
               className="btn btn-cyan"
@@ -123,7 +123,7 @@ export default function Who() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Register for LACE 1.0 <span className="arr">→</span>
+              View event details <span className="arr">→</span>
             </a>
           </div>
         </div>

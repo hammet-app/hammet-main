@@ -29,7 +29,7 @@ export default function Footer() {
             <a href="https://hammetedu.com/LACE">hammetedu.com/LACE</a>
             <a href={`tel:${LINKS.phone}`}>{LINKS.phoneNice}</a>
             <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-              Register on Selar
+              LACE 1.0 has ended
             </a>
             <a href={LINKS.waitlist} target="_blank" rel="noopener noreferrer">
               Join the waitlist
@@ -48,11 +48,11 @@ export default function Footer() {
       </footer>
       <div className="sticky" id="sticky">
         <div className="t">
-          <b>LACE 1.0 &middot; 7 Nov</b>
-          <span>Register from &#8358;5,000</span>
+          <b>LACE 1.0</b>
+          <span>Event ended. Stay tuned for updates.</span>
         </div>
         <a className="btn btn-primary" href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-          Register
+          Event ended
         </a>
       </div>
     </>
