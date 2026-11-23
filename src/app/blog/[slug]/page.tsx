@@ -2,7 +2,6 @@ import {notFound} from 'next/navigation'
 import Link from 'next/link'
 import type {Metadata} from 'next'
 import {getPost, getRelatedPosts} from '@/lib/content'
-import { urlFor } from '@/lib/content/image' 
 import ArticleContent from '@/components/blog/ArticleContent'
 import AuthorCard from '@/components/blog/AuthorCard'
 import RelatedPosts from '@/components/blog/RelatedPosts'
@@ -33,12 +32,7 @@ export async function generateMetadata({
     post.excerpt ||
     'Research, ideas, and practical thinking about AI, careers, and the future of work.'
 
-  const image = post.coverImage
-    ? urlFor(post.coverImage)
-        .width(1200)
-        .height(630)
-        .url()
-    : undefined
+  const image = post.coverImage?.url
 
   return {
     title,
@@ -81,8 +75,8 @@ export default async function BlogPostPage({params}: Props) {
 
   const post = await getPost(slug)
 
-  const relatedPosts = post?.category?._id
-    ? await getRelatedPosts(post.category._id, post._id)
+  const relatedPosts = post
+    ? await getRelatedPosts(post.slug)
     : []
 
   if (!post) {
@@ -107,9 +101,7 @@ export default async function BlogPostPage({params}: Props) {
           name: post.author.name,
         }
       : undefined,
-    image: post.coverImage
-      ? urlFor(post.coverImage).width(1200).height(630).url()
-      : undefined,
+    image: post.coverImage?.url,
     publisher: {
       '@type': 'Organization',
       name: 'Hammet',
@@ -201,14 +193,14 @@ export default async function BlogPostPage({params}: Props) {
         {post.coverImage && (
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="overflow-hidden rounded-2xl sm:rounded-3xl">
-              <img
-                src={urlFor(post.coverImage)
-                  .width(1600)
-                  .height(900)
-                  .url()}
-                alt={post.title}
-                className="aspect-video w-full object-cover"
-              />
+              <figure>
+                <img
+                  src={post.coverImage.url}
+                  alt={post.coverImage.alt || post.title}
+                  className="aspect-video w-full object-cover"
+                />
+                {post.coverImage.caption && <figcaption className="bg-gray-50 px-4 py-2 text-center text-sm text-gray-500">{post.coverImage.caption}</figcaption>}
+              </figure>
             </div>
           </div>
         )}

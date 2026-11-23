@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { urlFor } from '@/lib/content/image'
 import { Post } from '@/lib/content/types'
 
 type FeaturedPostProps = {
@@ -14,8 +13,8 @@ export default function FeaturedPost({post}: FeaturedPostProps) {
           <div className="relative aspect-[16/10] overflow-hidden bg-purple-light lg:aspect-auto">
             {post.coverImage ? (
               <img
-                src={urlFor(post.coverImage).width(1200).height(800).url()}
-                alt={post.title}
+                src={post.coverImage.url}
+                alt={post.coverImage.alt || post.title}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             ) : (

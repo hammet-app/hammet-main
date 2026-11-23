@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { urlFor } from '@/lib/content/image'
 import { Post } from '@/lib/content/types'
 
 type PostCardProps = {
@@ -20,8 +19,8 @@ export default function PostCard({post, index}: PostCardProps) {
           <div className="relative aspect-[16/10] overflow-hidden bg-purple-light">
             {post.coverImage ? (
               <img
-                src={urlFor(post.coverImage).width(800).height(500).url()}
-                alt={post.title}
+                src={post.coverImage.url}
+                alt={post.coverImage.alt || post.title}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             ) : (

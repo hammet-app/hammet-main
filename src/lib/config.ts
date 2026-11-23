@@ -35,7 +35,7 @@ export interface Testimonial {
 export const LACE: LaceConfig = {
   /* ---------- 1. LINKS ---------- */
   links: {
-    selar: 'https://selar.com/hammetlace', // LACE 1.0 tickets (every "Register" button)
+    selar: '#event-ended', // Ticket actions now lead to the ended-event notice.
     bootcamp: 'https://rebrand.ly/LeaderSALES', // free bootcamp group
     waitlist: 'https://rebrand.ly/LACERW', // waitlist group for people not ready to pay yet
     phone: '07082352779', // LACE line (call and WhatsApp)

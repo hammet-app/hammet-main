@@ -85,10 +85,10 @@ export default function Events() {
         <Assemble className="events-cta">
           <div>
             <b>Join a community that has already shown up.</b>
-            <span>Register for LACE 1.0 and be part of what is next.</span>
+            <span>LACE 1.0 has ended. Stay tuned for updates on future events.</span>
           </div>
           <a href={LINKS.selar} target="_blank" rel="noopener noreferrer">
-            Register for LACE 1.0 <span aria-hidden="true">→</span>
+            View event details <span aria-hidden="true">→</span>
           </a>
         </Assemble>
       </div>

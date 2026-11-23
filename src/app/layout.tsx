@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import EventEndedNotice from "@/components/lace/EventEndedNotice";
 
 export const metadata: Metadata = {
   title: "Hammet — Your AI career starts here.",
@@ -32,6 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <EventEndedNotice />
         {children}
       </body>
     </html>

@@ -67,7 +67,7 @@ export default function Nav() {
 
           <a className="btn btn-primary" href={LINKS.selar} target="_blank" rel="noopener noreferrer">
             <span>
-              Register<span className="hide-m"> for LACE 1.0</span>
+              Event ended
             </span>
           </a>
         </div>
