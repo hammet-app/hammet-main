@@ -1,6 +1,6 @@
 import type { Post, PublicPostDto } from './types'
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || ""
 
 function toPost(dto: PublicPostDto): Post {
   return {
